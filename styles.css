@@ -132,6 +132,10 @@ body {
 
 #result-display p { font-size: 1.1em; line-height: 1.6; margin-top: 0; }
 #result-display .frequency { font-size: 0.9em; color: #777; margin-top: 20px; font-style: italic; }
+/* The DCC link sits inside the muted italic frequency line, so it keeps that colour rather
+   than taking the browser's default blue -- underlined so it still reads as a link. */
+#result-display .frequency a { color: inherit; text-decoration: underline; }
+#result-display .frequency a:hover { color: var(--accent-color); }
 
 .btn { padding: 10px 15px; font-size: 0.9em; font-weight: bold; border-radius: 20px; border: none; cursor: pointer; transition: background-color 0.2s, box-shadow 0.2s; white-space: nowrap; }
 .btn-primary { background-color: var(--accent-color); color: var(--accent-text-color); }

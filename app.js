@@ -528,8 +528,8 @@
         // here would be taken as the part of speech.
         const freqHtml = (word.frequency === null) ? ''
             : (word.frequency === 0)
-                ? `<div class="frequency">Not on the DCC Latin Core list.</div>`
-                : `<div class="frequency">DCC Latin Core: #${word.frequency} of 997</div>`;
+                ? `<div class="frequency">Not on the <a href="https://dcc.dickinson.edu/latin-core-list" target="_blank" rel="noopener">DCC Latin Core</a> list.</div>`
+                : `<div class="frequency"><a href="https://dcc.dickinson.edu/latin-core-list" target="_blank" rel="noopener">DCC Latin Core</a>: the #${word.frequency} most frequent word in Latin literature</div>`;
 
         // Builds the dropdown HTML for grammatical forms if they exist
         let formsHtml = '';
@@ -663,7 +663,7 @@
                     const freqHtml = (wordObject.frequency === null) ? ''
                         : (wordObject.frequency === 0)
                             ? `<span class="study-list-frequency">not on the DCC core list</span>`
-                            : `<span class="study-list-frequency">DCC core #${wordObject.frequency}</span>`;
+                            : `<span class="study-list-frequency">DCC core: #${wordObject.frequency} most frequent</span>`;
                     const li = document.createElement('li');
                     li.innerHTML = `
                         <div class="study-list-item-content">
