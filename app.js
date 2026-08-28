@@ -528,8 +528,8 @@
         // here would be taken as the part of speech.
         const freqHtml = (word.frequency === null) ? ''
             : (word.frequency === 0)
-                ? `<div class="frequency">Not on the <a href="https://dcc.dickinson.edu/latin-core-list" target="_blank" rel="noopener">DCC Latin Core</a> list.</div>`
-                : `<div class="frequency"><a href="https://dcc.dickinson.edu/latin-core-list" target="_blank" rel="noopener">DCC Latin Core</a>: the #${word.frequency} most frequent word in Latin literature</div>`;
+                ? `<div class="frequency">Not on the <a href="https://dcc.dickinson.edu/latin-core-list1" target="_blank" rel="noopener">DCC Latin Core</a> list.</div>`
+                : `<div class="frequency"><a href="https://dcc.dickinson.edu/latin-core-list1" target="_blank" rel="noopener">DCC Latin Core</a>: the #${word.frequency} most frequent word in Latin literature</div>`;
 
         // Builds the dropdown HTML for grammatical forms if they exist
         let formsHtml = '';
