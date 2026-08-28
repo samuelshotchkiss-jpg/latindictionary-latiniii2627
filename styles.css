@@ -1,0 +1,376 @@
+:root {
+    --primary-bg: #f4f4f9;
+    --secondary-bg: #ffffff;
+    --text-color: #333333;
+    --accent-color: #4a69bd;
+    --accent-secondary: #e1e7f5;
+    --accent-text-color: #ffffff;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --danger-color: #c0392b;
+    --study-list-color: #27ae60;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container { display: flex; width: 100%; height: 100%; position: relative; }
+
+#word-wheel-container {
+    flex: 0 0 33vw; /* Sets the sidebar to exactly 1/3 of the screen width */
+    max-width: 350px; /* Prevents it from getting too wide on large desktop monitors */
+    min-width: 250px; /* Keeps it readable if the browser window is shrunk */
+    background-color: var(--secondary-bg);
+    border-right: 1px solid var(--border-color);
+    box-shadow: 2px 0 5px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+    z-index: 4000;
+}
+
+#word-wheel li { 
+    padding: 12px 20px; 
+    cursor: pointer; 
+    font-size: 0.95em; 
+    border-bottom: 1px solid var(--primary-bg); 
+    transition: background-color 0.2s, color 0.2s; 
+    
+    /* The magic properties for single-line truncation with an ellipsis (...) */
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+#word-wheel-title { padding: 20px; font-size: 1.2em; font-weight: bold; border-bottom: 1px solid var(--border-color); color: var(--accent-color); text-align: center; }
+#word-wheel { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1; }
+#word-wheel li { 
+    padding: 12px 20px; 
+    cursor: pointer; 
+    font-size: 0.95em; 
+    border-bottom: 1px solid var(--primary-bg); 
+    transition: background-color 0.2s, color 0.2s; 
+    
+    /* The magic properties for single-line truncation with an ellipsis (...) */
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+#word-wheel li:hover { background-color: var(--accent-secondary); color: var(--accent-color); }
+#word-wheel li.selected { background-color: var(--accent-color); color: var(--accent-text-color); font-weight: bold; }
+#word-wheel li.in-study-list { color: var(--study-list-color); font-weight: 600; }
+#word-wheel li.in-study-list.selected { background-color: var(--accent-color); color: var(--accent-text-color); }
+
+#wheel-legend { padding: 15px; font-size: 0.8em; color: #777; text-align: center; border-top: 1px solid var(--border-color); flex-shrink: 0; }
+#wheel-legend span { color: var(--study-list-color); font-weight: bold; }
+
+#main-content {
+    flex-grow: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.top-controls { display: flex; align-items: center; width: 100%; max-width: 600px; margin-bottom: 30px; gap: 15px; }
+.search-wrapper { position: relative; flex-grow: 1; }
+
+#search-input { width: 100%; padding: 15px 20px; font-size: 1.1em; border-radius: 50px; border: 1px solid var(--border-color); box-shadow: 0 2px 8px var(--shadow-color); box-sizing: border-box; }
+#search-input:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(74, 105, 189, 0.2); }
+
+#suggestions-list { display: none; position: absolute; top: 100%; left: 0; right: 0; background-color: var(--secondary-bg); border: 1px solid var(--border-color); border-top: none; border-radius: 0 0 15px 15px; box-shadow: 0 8px 10px var(--shadow-color); max-height: 250px; overflow-y: auto; z-index: 1000; }
+#suggestions-list div { padding: 12px 20px; cursor: pointer; }
+#suggestions-list div:hover { background-color: var(--primary-bg); }
+
+#result-display { 
+    background-color: var(--secondary-bg); 
+    width: 100%; 
+    max-width: 600px; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 12px var(--shadow-color); 
+    border: 1px solid var(--border-color); 
+    min-height: 150px; 
+    box-sizing: border-box; 
+    
+    /* NEW: Prevents the mobile screen from squishing the card */
+    flex-shrink: 0;
+    margin-bottom: 40px; 
+}
+.placeholder-text { color: #999; text-align: center; font-size: 1.2em; padding: 40px 0; }
+
+.result-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-bottom: 10px; }
+.result-header h2 { margin: 0; color: var(--accent-color); font-size: 1.8em; word-break: break-word; }
+.result-header .add-to-list-btn-action { flex-shrink: 0; }
+.result-footer { display: none; }
+
+/* NEW: Style for the part of speech */
+.part-of-speech {
+    font-family: 'SF Mono', SFMono-Regular, 'Courier New', monospace;
+    color: #888;
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+#result-display p { font-size: 1.1em; line-height: 1.6; margin-top: 0; }
+#result-display .frequency { font-size: 0.9em; color: #777; margin-top: 20px; font-style: italic; }
+
+.btn { padding: 10px 15px; font-size: 0.9em; font-weight: bold; border-radius: 20px; border: none; cursor: pointer; transition: background-color 0.2s, box-shadow 0.2s; white-space: nowrap; }
+.btn-primary { background-color: var(--accent-color); color: var(--accent-text-color); }
+.btn-primary:hover { background-color: #3a599d; }
+.btn-secondary { background-color: var(--accent-secondary); color: var(--accent-color); }
+.btn-secondary:hover { background-color: #d1d9e9; }
+.btn-danger { background-color: var(--danger-color); color: white; }
+
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 5000; justify-content: center; align-items: center; }
+.modal-content { background-color: white; padding: 30px; border-radius: 15px; max-width: 600px; width: 90%; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px; }
+.modal-header h2 { margin: 0; color: var(--accent-color); }
+.modal-close { font-size: 1.5em; cursor: pointer; color: #aaa; background: none; border: none; padding: 0 10px; }
+.modal-body { overflow-y: auto; line-height: 1.6; }
+.modal-footer { border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 20px; display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
+
+/* --- The About link, and the credits it opens -------------------------------
+   The footer sits BELOW the result card and is pushed to the bottom of the
+   scroll area by margin-top:auto, so on a short page it rests at the foot of
+   the window and on a long entry it simply follows the text. It is styled as
+   quiet grey type -- the same treatment as the word-wheel legend -- because it
+   must be findable without competing with the search box. */
+#site-footer { width: 100%; max-width: 600px; margin-top: auto; padding-bottom: 4px; text-align: center; flex-shrink: 0; }
+.footer-link { background: none; border: none; font: inherit; font-size: 0.8em; color: #777; cursor: pointer; text-decoration: underline; padding: 8px 12px; border-radius: 8px; }
+.footer-link:hover { color: var(--accent-color); background-color: var(--accent-secondary); }
+.footer-link:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+
+.about-body p:first-child { margin-top: 0; }
+.about-body h3 { color: var(--accent-color); font-size: 1.05em; margin: 22px 0 6px; }
+.about-body ul { padding-left: 22px; margin: 10px 0; }
+.about-body li { margin-bottom: 8px; }
+
+#study-list-ul { list-style: none; padding: 0; }
+#study-list-ul li { display: flex; justify-content: space-between; align-items: flex-start; padding: 15px 10px; border-bottom: 1px solid var(--primary-bg); }
+.study-list-item-content { display: flex; flex-direction: column; margin-right: 15px; flex-grow: 1; }
+.study-list-latin { font-weight: bold; color: var(--text-color); font-size: 1.1em; }
+.study-list-definition { color: #555; font-size: 0.9em; margin-top: 4px; }
+.study-list-frequency { color: #888; font-size: 0.8em; font-style: italic; margin-top: 6px; }
+.remove-from-list-btn { background: none; border: none; color: var(--danger-color); cursor: pointer; font-size: 1.5em; font-weight: bold; padding: 0 5px; }
+
+#toggle-word-wheel-btn, #close-word-wheel-btn { display: none; }
+#mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 3999; }
+
+@media (max-width: 768px) {
+    #word-wheel-container {
+        position: fixed; left: 0; top: 0; height: 100%; width: 80vw; max-width: 280px;
+        transform: translateX(-100%); border-right: 2px solid var(--border-color);
+    }
+    #word-wheel-container.mobile-visible { transform: translateX(0); }
+    
+    #toggle-word-wheel-btn { display: block; text-align: center; }
+    #close-word-wheel-btn { display: block; position: absolute; top: 10px; right: 5px; font-size: 1.5em; padding: 5px 10px; }
+
+    #main-content { padding: 15px; }
+    .top-controls { flex-direction: column-reverse; align-items: stretch; margin-bottom: 20px; gap: 10px; }
+    
+    #search-input, .btn { padding-top: 15px; padding-bottom: 15px; font-size: 1.1em; }
+    #suggestions-list div { padding: 15px 20px; font-size: 1.1em; }
+
+    #result-display { padding: 20px; }
+    #result-display p { font-size: 1em; }
+
+    .result-header .add-to-list-btn-action { display: none; }
+    .result-footer { display: block; text-align: center; margin-top: 25px; }
+    .result-footer .add-to-list-btn-action { width: 100%; }
+    
+    .result-header h2 { font-size: 1.1em; font-weight: bold; }
+    
+    #view-study-list-btn {
+        background-color: var(--accent-color);
+        color: var(--accent-text-color);
+        border-radius: 8px;
+    }
+    .modal-content { width: 95%; height: 85vh; max-height: 90vh; }
+}
+/* NEW: Grammar Forms Section Styles */
+.forms-section {
+    margin: 20px 0 10px 0;
+    background-color: var(--primary-bg);
+    border-radius: 8px;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+}
+.forms-section summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent-color);
+    outline: none;
+    font-size: 1.05em;
+    user-select: none;
+}
+.forms-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    max-height: 220px; /* Introduces the scrollbar */
+    overflow-y: auto;  /* Allows scrolling */
+    scrollbar-width: thin; /* Makes the scrollbar look neat */
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+}
+.forms-list li {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95em;
+    transition: background-color 0.2s;
+}
+.forms-list li:last-child {
+    border-bottom: none;
+}
+.forms-list .highlighted-form {
+    background-color: rgba(74, 105, 189, 0.1);
+    border-radius: 6px;
+    border-bottom: none;
+    box-shadow: 0 0 0 1px var(--accent-secondary);
+}
+/* This guarantees the text AND the specific form word turn bold and blue */
+.forms-list .highlighted-form,
+.forms-list .highlighted-form .form-name {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+.form-name {
+    color: var(--text-color);
+    font-weight: 600;
+}
+.search-form-lemma-label {
+    color: #888;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+.headword-comment {
+    font-style: italic;
+    font-weight: normal;
+    color: #888;
+    font-size: 0.9em;
+}
+/* Definition Commentary */
+.def-comment {
+    font-style: italic;
+    color: #666; /* A soft gray to distinguish it from the black definition text */
+}
+
+/* Grammar Term Link — a real <a> to the Pharr appendix, styled to sit quietly
+   inside the commentary rather than announce itself as a web link. */
+.grammar-link {
+    color: inherit;
+    font-weight: inherit;
+    font-style: inherit;   /* an <a> must not break out of the commentary italics */
+    cursor: pointer;
+    
+    /* Split out for maximum cross-browser visibility */
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #999; /* A distinct but soft gray */
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px; /* Forces the browser to actually draw the dots */
+    
+    transition: background-color 0.2s, text-decoration-color 0.2s;
+}
+
+.grammar-link:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+    text-decoration-color: #333; /* Underline gets darker on hover */
+    border-radius: 3px;
+}
+/* Latin words within commentary */
+.latin-in-context {
+    font-style: normal; /* Breaks out of the commentary italics */
+    font-weight: 600; /* Makes it slightly bolder */
+    color: var(--text-color); /* Brings it back to the main dark text color */
+}
+/* Prefix-assimilation notice: shown when a search found nothing and a spelling rule
+   rescued it. It must NOT read as one of the answers -- it is a lesson sitting above
+   them -- so it is not clickable, has no hover state, and is tinted rather than white. */
+.assimilation-notice {
+    cursor: default !important;
+    background-color: var(--accent-secondary);
+    border-left: 4px solid var(--accent-color);
+    padding: 10px 20px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: sticky;   /* stays visible while the rescued results are scrolled */
+    top: 0;
+    z-index: 1;
+}
+.assimilation-notice:hover { background-color: var(--accent-secondary) !important; }
+.assim-shift {
+    font-size: 1.05em;
+    letter-spacing: 0.01em;
+}
+.assim-from {
+    font-family: Georgia, "Times New Roman", serif;
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    opacity: 0.75;
+}
+.assim-arrow { margin: 0 0.5em; color: var(--accent-color); }
+.assim-to {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+.assim-note {
+    font-size: 0.85em;
+    color: #555;
+    font-style: italic;
+}
+/* The dead-end line: no result to offer, so this is the whole answer. */
+.assim-dead {
+    font-style: normal;
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px dashed var(--border-color);
+}
+.assim-dead strong { color: var(--accent-color); }
+/* Demoted styling for inflected forms in the search dropdown */
+.is-form-match {
+    color: #666;
+    font-size: 0.95em;
+    background-color: #fafafa;
+    border-left: 4px solid var(--accent-secondary);
+    padding-left: 25px; /* Indents the form slightly */
+}
+.is-form-match:hover {
+    background-color: var(--primary-bg) !important;
+}
+/* Idiom phrases */
+.idiom-phrase {
+    background-color: #f9f9fa; /* A very soft, neutral light gray, distinctly not blue */
+    border: 1px solid #e5e5e8; /* A much softer, less intrusive border */
+    padding: 1px 4px; /* Shaved down from 6px to close the visual gap with the semicolon */
+    margin: 0; /* Removed margin to prevent pushing adjacent punctuation away */
+    border-radius: 4px; /* Tighter corners so it feels more like text and less like a button */
+    font-size: 0.95em;
+    color: var(--text-color);
+    
+    /* Ensures the border and padding look good if it wraps to a new line */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}

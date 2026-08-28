@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latin III Vocabulary Study App</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside id="word-wheel-container">
+            <button id="close-word-wheel-btn" class="modal-close">&times;</button>
+            <div id="word-wheel-title">Vocabulary List</div>
+            <ul id="word-wheel"></ul>
+            <div id="wheel-legend">
+                <span>Green</span> text indicates a word is in your Study List.
+            </div>
+        </aside>
+
+        <main id="main-content">
+            <div class="top-controls">
+                <button id="view-study-list-btn" class="btn btn-secondary">My Study List</button>
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Type a Latin word...">
+                    <div id="suggestions-list"></div>
+                </div>
+                <button id="toggle-word-wheel-btn" class="btn btn-secondary">&#9776; Show Word List</button>
+            </div>
+            
+            <div id="result-display">
+                <div class="placeholder-text">
+                    <p>Search for a word or select one from the list to see its details.</p>
+                </div>
+            </div>
+
+            <footer id="site-footer">
+                <button id="about-btn" class="footer-link">About &amp; Acknowledgements</button>
+            </footer>
+        </main>
+    </div>
+
+    <div id="mobile-menu-overlay"></div>
+
+    <!-- MODIFIED: Renamed IDs for clarity -->
+    <div id="privacy-notice-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header"><h2>Welcome! (Privacy Notice)</h2></div>
+            <div class="modal-body">
+                <p>This app uses your browser's **Local Storage** to save your personal vocabulary study list.</p>
+                <p><b>Your data is stored only on this computer and within this browser.</b> It is never collected, analyzed, or sent anywhere else. This feature is provided for your convenience so your list is remembered between sessions.</p>
+                <p>By clicking "Acknowledge," you agree to the use of Local Storage for this purpose.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="acknowledge-privacy-btn" class="btn btn-primary">Acknowledge</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="study-list-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>My Study List</h2>
+                <button class="modal-close" id="close-study-list-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="study-list-body">
+                <ul id="study-list-ul"></ul>
+                <p id="study-list-placeholder" style="display: none;">Your list is empty. Add words from the dictionary to get started!</p>
+            </div>
+            <div class="modal-footer">
+                <button id="import-list-btn" class="btn btn-secondary">Import TSV</button>
+                <input type="file" id="import-file-input" accept=".tsv,.txt" style="display: none;">
+                <button id="copy-list-btn" class="btn btn-primary">Copy to Clipboard</button>
+                <button id="download-list-btn" class="btn btn-primary">Download as TSV</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="about-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>About &amp; Acknowledgements</h2>
+                <button class="modal-close" id="close-about-modal">&times;</button>
+            </div>
+            <div class="modal-body about-body">
+                <p>This dictionary covers the Latin vocabulary of the Latin III course: the words of
+                <i>Cloelia, puella Rōmāna</i> and of the <i>Discordiae Cīvīlēs</i> chapter, together with the
+                vocabulary carried forward from Latin I and II. Where a word appears on the
+                <a href="https://dcc.dickinson.edu/latin-core-list" target="_blank" rel="noopener">DCC Latin Core
+                list</a> &mdash; the thousand commonest words in Latin literature &mdash; its rank there is shown,
+                because that, rather than how often it happens to occur in our own texts, is what tells you
+                how much a word is worth knowing. Every definition in it was written from scratch against the texts
+                themselves: an entry leads with one core meaning and then adds only the senses that
+                actually occur in these passages.</p>
+
+                <p>Grammatical terms are printed <span class="def-comment">like this</span>, and the
+                ones that are links will open the matching entry in the
+                <a id="about-pharr-link" href="https://samuelshotchkiss-jpg.github.io/pharr-aeneid-grammar/"
+                   target="_blank" rel="noopener">digital Pharr grammar appendix</a>.</p>
+
+                <h3>With thanks to the lexicographers</h3>
+
+                <p>No dictionary text is reproduced in these entries. But the judgment behind many of
+                them was informed by the standard lexica, and that debt is real enough to state
+                plainly:</p>
+
+                <ul class="citations">
+                    <li><i>Woordenboek Latijn/Nederlands</i>. 7th rev. ed. Edited by Harm Pinkster.
+                    Amsterdam: Amsterdam University Press, 2018. — The one this dictionary owes
+                    most, consulted through <a href="https://logeion.uchicago.edu/" target="_blank"
+                    rel="noopener">Logeion</a> (University of Chicago).</li>
+                    <li>Lewis, Charlton T., and Charles Short. <i>A Latin Dictionary</i>. Oxford:
+                    Clarendon Press, 1879. — Consulted constantly through the
+                    <a href="https://www.perseus.tufts.edu/hopper/" target="_blank"
+                    rel="noopener">Perseus Digital Library</a>.</li>
+                    <li>Frieze, Henry S. <i>Vergil's Aeneid, Books I–XII: With an Introduction,
+                    Notes, and Vocabulary</i>. Revised by Walter Dennison. New York: American Book
+                    Company, 1902. — Consulted through <a href="https://logeion.uchicago.edu/"
+                    target="_blank" rel="noopener">Logeion</a> (University of Chicago).</li>
+                    <li>Palmer, Arthur, ed. <i>P. Ovidi Nasonis Heroides</i>. Oxford: Clarendon
+                    Press, 1898.</li>
+                    <li>Knox, Peter E., ed. <i>Ovid: Heroides. Select Epistles</i>. Cambridge Greek
+                    and Latin Classics. Cambridge: Cambridge University Press, 1995.</li>
+                </ul>
+
+                <h3>Where this dictionary departs from them</h3>
+
+                <p>It is deliberately stricter than a general lexicon about live metaphor. When a poet
+                is using a word figuratively, the aim here is to leave the figure standing so that the
+                reader meets it, rather than flattening it into a tidy gloss — a cloud <i>heavy</i>
+                with rain is a cloud <i>pregnant</i> with rain, and the student should get to see
+                that. So a meaning the older dictionaries record is sometimes one this dictionary has
+                declined to give. Where that happens it is a choice, not an oversight.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-about-btn" class="btn btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
