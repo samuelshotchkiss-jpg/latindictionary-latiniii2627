@@ -76,7 +76,7 @@ centum,hundred,730,Numeral
 "certus, certa, certum","certain, sure; {(adverb, *certē*)} certainly",285,Adjective
 "cibus, cibī, {m.}",food,863,Noun
 "cīvīlis, cīvīle",civil,0,
-cīvis,citizen; of citizen,471,
+"cīvis, cīvis, {m./f.}",citizen,471,
 "cīvitās, cīvitātis, {f.}","state, citizenship",346,
 clam,secretly,0,Adverb
 "clāmō, clāmāre, clāmāvī, clāmātum",to shout,0,Verb
@@ -329,7 +329,8 @@ neque,and...not; {(*neque ... neque*)} neither ... nor,72,Conjunction
 nimis,too much,841,Adverb
 "nōbilis, nōbile",noble,455,
 "nocturnus, nocturna, nocturnum",of the night,0,Adjective
-"nōlō, nōlle, nōluī",don't!; to not want,458,Verb
+"nōlī, nōlīte",don't!,0,
+"nōlō, nōlle, nōluī",to not want,458,Verb
 "nōmen, nōminis, {n.}",name,135,Noun
 nōn,not,6,
 nōnne,isn't? surely?,0,
@@ -435,7 +436,7 @@ rēpō,I crawl,0,
 "rumpō, rumpere, rūpī, ruptum",to break,480,Verb
 rūrsus,back; again,440,Adverb
 "sacer, sacra, sacrum",sacred,398,Adjective
-salvē,Hello (to multiple people); Hello (to one person),0,Interjection
+"salvē, salvēte",hello,0,Interjection
 "salūs, salūtis, {f.}",safety; a wish for safety; a greeting,549,Noun
 "sapiēns, sapientis",wise,453,Adjective
 satis,enough,341,Adverb
