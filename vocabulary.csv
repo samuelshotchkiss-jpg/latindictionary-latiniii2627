@@ -1,6 +1,6 @@
 Latin Word,English Definition(s),Frequency,Part of Speech
 ā,ah,0,Interjection
-ab,"(away) from; by {(with a passive verb, expressing the agent)}",21,
+ab,(away) from; by {(with a passive verb)},21,
 abhinc,ago,0,Adverb
 "abhorreō, abhorrēre, abhorruī",to shrink from; to be averse to,0,
 "accūsō, accūsāre, accūsāvī, accūsātum",to accuse,0,
@@ -160,7 +160,7 @@ ergō,therefore,134,Conjunction
 et,and,1,Conjunction
 etiam,also; even,67,"Adverb, Conjunction"
 "Etrūscus, Etrūsca, Etrūscum",Etruscan,0,
-"ē, ex","out of; of {(partitive, with a number or quantifier)}",26,Preposition
+"ē, ex",out of; of {(with a number)},26,Preposition
 "excitō, excitāre, excitāvī, excitātum",to stir up,0,
 "exerceō, exercēre, exercuī, exercitum","to practice; to exercise {(of power, *potestātem*)}",576,Verb
 "exercitus, exercitūs, {m.}",army,267,
@@ -408,7 +408,7 @@ pudīcitia,chastity,0,
 "putō, putāre, putāvī, putātum",to think,166,Verb
 "quaerō, quaerere, quaesīvī, quaesītum",to seek,113,Verb
 "quālis, quāle",of what kind,263,Adjective
-quam,"how {(as an exclamatory adverb)}; than {(after a comparative)}; {(after *tam*, in comparisons of equality)} as",29,Conjunction
+quam,"how {(exclamatory)}; than {(after a comparative)}; {(after *tam*, in comparisons of equality)} as",29,Conjunction
 "quārtus, quārta, quārtum",fourth,0,Adjective
 quattuor,four,867,Numeral
 -que,and,4,Conjunction
@@ -516,7 +516,7 @@ trecentī,three hundred,0,
 "tribūtum, tribūtī, {n.}",tax,0,
 "trīstis, trīste",sad,275,Adjective
 "trīstitia, trīstitiae, {f.}",sadness,0,
-"tū, tuī, tibī̆, tē, tē","you {personal pronoun, {{singular}}}",9,Pronoun
+"tū, tuī, tibī̆, tē, tē",you {(singular)},9,Pronoun
 "tuba, tubae, {f.}",trumpet,0,Noun
 "tueor, tuērī, tuitus sum",to watch,0,Verb
 "tumultus, tumultūs, {m.}",uproar,0,
@@ -564,6 +564,6 @@ Volumnia,Volumnia {the wife of Coriolanus},0,
 "vōtum, vōtī, {n.}",vow; pledge,334,Noun
 "vōx, vōcis, {f.}",voice,169,Noun
 "urbs, urbis, {f.}",city,82,Noun
-ūsque ad,"right up to, all the way to {+ acc.}",0,
+ūsque ad,"right up to, all the way to",0,
 ut,as {(with {{indicative}})},15,Conjunction
 "uxor, uxōris, {f.}",wife,552,Noun
