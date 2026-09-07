@@ -5,7 +5,7 @@ abhinc,ago,0,Adverb
 "abhorreō, abhorrēre, abhorruī",to shrink from; to be averse to,0,
 "accūsō, accūsāre, accūsāvī, accūsātum",to accuse,0,
 ācriter,fiercely,0,
-ad,"to {(of motion, with {{accusative}})}; for {(of purpose)}; by {(of a deadline, *diem*)}; until {(of time, with *ūsque*)}",14,Preposition
+ad,"to {(of motion, with accusative)}; for {(of purpose)}; by {(of a deadline, *diem*)}; until {(of time, with *ūsque*)}",14,Preposition
 "adeō, adīre, adiī / adīvī, aditum",to approach,595,Verb
 adhūc,still,379,Adverb
 "adiuvō, adiuvāre, adiūvī, adiūtum",to help,0,Verb
@@ -66,7 +66,7 @@ Camilla,an Italian warrior princess,0,
 "captīva, captīvae, {f.}",captive,0,Noun
 "caput, capitis, {n.}",head,124,Noun
 "carcer, carceris, {m.}",prison,0,
-"carmen, carminis, {n.}",song; {(in the {{plural}})} music; poem,254,Noun
+"carmen, carminis, {n.}",song; {(in the plural)} music; poem,254,Noun
 "castra, castrōrum, {n. pl.}",military camp,0,Noun
 "cautus, cauta, cautum",cautious,0,Adjective
 "celer, celeris, celere",swift,745,Adjective
@@ -105,7 +105,7 @@ cotīdiē,every day,0,Adverb
 "crūdēlis, crūdēle",cruel,0,Adjective
 "culīna, culīnae, {f.}",kitchen,0,Noun
 "cultūra, cultūrae, {f.}","cultivation, tilling",0,
-cum,with {(preposition with {{ablative}})},10,Preposition
+cum,with {(preposition with ablative)},10,Preposition
 cum (quum),"when; although {(often followed by *tamen*)}; [[*cum prīmum* ""when first"" → ""as soon as""]]",10,Conjunction
 "cupiō, cupere, cupīvī, cupītum",to desire,441,Verb
 cūr,why,404,Adverb
@@ -220,7 +220,7 @@ iam,now; already,34,Adverb
 "imperium, imperiī, {n.}","command, supreme power",200,
 "imperō, imperāre, imperāvī, imperātum",to command,602,
 "īmus, īma, īmum",lowest,0,Adjective
-in,"in, on {with {{ablative}}}; into, onto, against, to {with {{accusative}}}; [[*in diēs* ""into days"" → ""day by day""]]",5,Preposition
+in,"in, on {with ablative}; into, onto, against, to {with accusative}; [[*in diēs* ""into days"" → ""day by day""]]",5,Preposition
 incendere,"to set on fire, kindle",0,
 "incipiō, incipere, incēpī, inceptum",to begin,411,Verb
 "īnfāns, īnfantis, {m./f.}",young child,0,"Noun, Adjective"
@@ -312,7 +312,7 @@ minimē,"no, not at all",143,Adjective
 mox,soon,469,Adverb
 Mūcius,a Roman hero,0,
 "mulier, mulieris, {f.}",woman,961,Noun
-"multus, multa, multum",much {(in the {{singular}})}; {(in the plural)} many,43,Adjective
+"multus, multa, multum",much {(in the singular)}; {(in the plural)} many,43,Adjective
 "mūniō, mūnīre, mūnīvī, mūnītum",to fortify,0,Verb
 "mūtō, mūtāre, mūtāvī, mūtātum",to change,315,Verb
 nam,"you see, and here's why",61,Conjunction
@@ -334,7 +334,7 @@ nimis,too much,841,Adverb
 "nōmen, nōminis, {n.}",name,135,Noun
 nōn,not,6,
 nōnne,isn't? surely?,0,
-"nōs, nostrī / nostrum, nōbīs, nōs, nōbīs","we, us {personal {{pronoun}}, {{plural}}}",51,Pronoun
+"nōs, nostrī / nostrum, nōbīs, nōs, nōbīs","we, us {personal pronoun, plural}",51,Pronoun
 "noster, nostra, nostrum",our,52,Adjective
 "novus, nova, novum",new,139,Adjective
 "nox, noctis, {f.}",night,119,Noun
@@ -489,7 +489,7 @@ subitō,suddenly,848,Adverb
 "supplicium, suppliciī, {n.}",punishment {= *poena*},683,
 "surgō (subrigō), surgere (subrigere), surrēxī, surrēctum",to rise,570,Verb
 "sustineō, sustinēre, sustinuī, sustentum",to hold up,762,Verb
-"suus, sua, suum","one's own {possessive {{adjective}} typically belonging to the {{subject}} of the clause, but in poetry occasionally referring to a prominent non-subject noun}",27,Adjective
+"suus, sua, suum",one's own {possessive adjective typically belonging to the subject of the clause},27,Adjective
 "tacitus, tacita, tacitum",silent,0,Adjective
 tam,so,96,Adverb
 tamen,"nevertheless, however",58,Adverb
@@ -524,7 +524,7 @@ tunc,then,56,Adverb
 "turba, turbae, {f.}",crowd,323,Noun
 "turbāre, turbō, turbāvī, turbātum",to disturb,868,Verb
 "tūtus, tūta, tūtum",safe,365,Adjective
-"tuus, tua, tuum",your {possessive {{adjective}} referring to a {{singular}} possessor},44,Adjective
+"tuus, tua, tuum",your {possessive adjective referring to a singular possessor},44,Adjective
 "Valeria, Valeriae, {f.}","Valeria, Cloelia's mother",0,
 "validus, valida, validum",strong,816,
 "vāllum, vāllī, {n.}",rampart,0,
@@ -565,5 +565,5 @@ Volumnia,Volumnia {the wife of Coriolanus},0,
 "vōx, vōcis, {f.}",voice,169,Noun
 "urbs, urbis, {f.}",city,82,Noun
 ūsque ad,"right up to, all the way to",0,
-ut,as {(with {{indicative}})},15,Conjunction
+ut,as {(with indicative)},15,Conjunction
 "uxor, uxōris, {f.}",wife,552,Noun
