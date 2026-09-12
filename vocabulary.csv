@@ -86,6 +86,7 @@ clam,secretly,0,Adverb
 Collātīnus,"one of the two Roman leaders, husband of Lucrētia",0,
 "colō, colere, coluī, cultum",to cultivate,333,Verb
 "color, colōris, {m.}",color,725,Noun
+"comitia, comitiōrum, {n. pl.}",assembly {where Romans elected their magistrates},0,
 "concēdō, concēdere, concessī, concessum",to yield; to grant,663,Verb
 "concordia, concordiae, {f.}","concord, harmony",0,
 "condō, condere, condidī, conditum","to put away; to found {(of a city, *urbem*)}",540,Verb
@@ -320,6 +321,7 @@ nam,"you see, and here's why",61,Conjunction
 "nāscor, nāscī, nātus sum",to be born,266,Verb
 "nātūra, nātūrae, {f.}",nature,180,Noun
 nē,that not; {(after verbs of fearing)} that,47,Conjunction
+-ne,Makes a sentence a question; appears after the first word.,238,Conjunction
 "nefās, nefās, {n.}",impious act,541,Noun
 "neglegō, neglegere, neglēxī, neglēctum",to neglect,0,
 "negō, negāre, negāvī, negātum",to deny,294,Verb
