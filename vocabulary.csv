@@ -1,6 +1,6 @@
 Latin Word,English Definition(s),Frequency,Part of Speech
 ā,ah,0,Interjection
-ab,(away) from; by {(with a passive verb)},21,
+ab,(away) from; by {(with a passive verb)},21,Preposition
 abhinc,ago,0,Adverb
 "abhorreō, abhorrēre, abhorruī",to shrink from; to be averse to,0,
 "accūsō, accūsāre, accūsāvī, accūsātum",to accuse,0,
@@ -18,7 +18,7 @@ adversus,against,460,Preposition
 "aeternus, aeterna, aeternum",eternal,734,Adjective
 "affectus, affecta, affectum","affected, overcome",0,Adjective
 "afferō, afferre, attulī, allātum",to bring,514,Verb
-"ager, agrī, {m.}",field,324,
+"ager, agrī, {m.}",field,324,Noun
 "agō, agere, ēgī, āctum",do; drive; act,69,Verb
 aiō,to say,406,Verb
 alacriter,eagerly,0,
@@ -35,7 +35,7 @@ an,or,94,Conjunction
 "animal, animālis, {n.}",animal,547,Noun
 "animus, animī, {m.}",mind; heart,40,Noun
 "annus, annī, {m.}",year,167,Noun
-"annuus, annua, annuum","yearly, lasting a year",0,
+"annuus, annua, annuum","yearly, lasting a year",0,Adjective
 "antīquus, antīqua, antīquum",ancient,617,Adjective
 "aperiō, aperīre, aperuī, apertum",to open,837,Verb
 "apertus, aperta, apertum",open,0,Adjective
@@ -43,6 +43,7 @@ an,or,94,Conjunction
 apud,at the house of (=French chez); among {(of a people or group)},205,Preposition
 "aqua, aquae, {f.}",water,272,Noun
 "arma, armōrum, {n. pl.}",weapons,98,Noun
+"as, assis, {m.}",as {a Roman bronze coin},0,Noun
 "ascendō, ascendere, ascendī, ascēnsum",climb,990,Verb
 at,but,74,Conjunction
 atque,and,35,Conjunction
@@ -72,27 +73,30 @@ Camilla,an Italian warrior princess,0,
 "celer, celeris, celere",swift,745,Adjective
 celeriter,quickly,967,
 centum,hundred,730,Numeral
+"centuria, centuriae, {f.}","century {a unit of the army; in the *Comitia Centuriāta*, a unit of voters with one vote}",0,Noun
+"centuriātus, centuriāta, centuriātum","arranged by centuries {as in *Comitia Centuriāta*, the assembly in which the people voted by centuries}",0,Adjective
 "certō, certāre, certāvī, certātum",compete,864,Verb
 "certus, certa, certum","certain, sure; {(adverb, *certē*)} certainly",285,Adjective
 "cibus, cibī, {m.}",food,863,Noun
 "cīvīlis, cīvīle",civil,0,
-"cīvis, cīvis, {m./f.}",citizen,471,
+"cīvis, cīvis, {m./f.}",citizen,471,Noun
 "cīvitās, cīvitātis, {f.}","state, citizenship",346,
 clam,secretly,0,Adverb
 "clāmō, clāmāre, clāmāvī, clāmātum",to shout,0,Verb
 "clārus, clāra, clārum",clear; bright,395,Adjective
+"classis, classis, {f.}",class {a division of the citizens by wealth},505,Noun
 "claudō, claudere, clausī, clausum",to close,392,Verb
 "coetus, coetūs, {m.}",gathering,0,Noun
 Collātīnus,"one of the two Roman leaders, husband of Lucrētia",0,
 "colō, colere, coluī, cultum",to cultivate,333,Verb
 "color, colōris, {m.}",color,725,Noun
-"comitia, comitiōrum, {n. pl.}",assembly {(where Romans elected their magistrates)},0,
+"comitia, comitiōrum, {n. pl.}",assembly {(where Romans elected their magistrates)},0,Noun
 "concēdō, concēdere, concessī, concessum",to yield; to grant,663,Verb
 "concordia, concordiae, {f.}","concord, harmony",0,
 "condō, condere, condidī, conditum","to put away; to found {(of a city, *urbem*)}",540,Verb
 "coniūnx, coniugis, {m./f.}",spouse,218,Noun
 "cōnsilium, cōnsiliī, {n.}",plan,217,Noun
-"cōnsul, cōnsulis, {m.}","consul {(one of the two chief officials of Rome, elected for one year)}",321,
+"cōnsul, cōnsulis, {m.}","consul {(one of the two chief officials of Rome, elected for one year)}",321,Noun
 "cōnsūmō, cōnsūmere, cōnsūmpsī, cōnsūmptum","to use up; to burn up {(of fire, *ignēs*)}",869,Verb
 contrā,opposite; against,271,"Adverb, Preposition"
 "convīvium, convīviī, {n.}",banquet,921,Noun
@@ -102,7 +106,7 @@ contrā,opposite; against,271,"Adverb, Preposition"
 "corpus, corporis, {n.}",body,75,Noun
 cotīdiē,every day,0,Adverb
 "crēdō, crēdere, crēdidī, crēditum",to believe,109,Verb
-"creō, creāre, creāvī, creātum",to create; to elect {(of magistrates)},978,
+"creō, creāre, creāvī, creātum",to create; to elect {(of magistrates)},978,Verb
 "crēscō, crēscere, crēvī, crētum",to grow,609,Verb
 "crūdēlis, crūdēle",cruel,0,Adjective
 "culīna, culīnae, {f.}",kitchen,0,Noun
@@ -117,7 +121,7 @@ cūr,why,404,Adverb
 dē,down from; about,46,Preposition
 "dea, deae, {f.}",goddess,42,Noun
 "dēbeō, dēbēre, dēbuī, dēbitum",to owe; ought {(with infinitive)},155,Verb
-decem,ten,914,
+decem,ten,914,Numeral
 "dēfendō, dēfendere, dēfendī, dēfēnsus",to defend,653,Verb
 dehinc,then; from now on,0,Adverb
 deinde,then,150,Adverb
@@ -136,7 +140,7 @@ deinde,then,150,Adverb
 "discrīmen, discrīminis, {n.}",crisis,0,
 diū,for a long time,361,Adverb
 "dīversus, dīversa, dīversum","different, diverse",641,
-"dīves, {(gen.)} dīvitis",rich,564,
+"dīves, {(gen.)} dīvitis",rich,564,"Adjective, Noun"
 "dīvidō, dīvidere, dīvīsī, dīvīsum",to divide,628,Verb
 "dō, dare, dedī, datum","to give; to press {(of kisses, *ōscula*)}; to pay {(of punishment, *poenās*)}",28,Verb
 "doceō, docēre, docuī, doctum",to teach,393,Verb
@@ -164,7 +168,7 @@ etiam,also; even,67,"Adverb, Conjunction"
 "ē, ex",out of; of {(with a number)},26,Preposition
 "excitō, excitāre, excitāvī, excitātum",to stir up,0,
 "exerceō, exercēre, exercuī, exercitum","to practice; to exercise {(of power, *potestātem*)}",576,Verb
-"exercitus, exercitūs, {m.}",army,267,
+"exercitus, exercitūs, {m.}",army,267,Noun
 "expellō, expellere, expulī, expulsus",to drive out,0,Verb
 "exsilium, exsiliī, {n.}",exile,794,Noun
 "fābula, fābulae, {f.}",story; play,966,Noun
@@ -218,10 +222,10 @@ iam,now; already,34,Adverb
 "ignis, ignis, {m.}",fire,151,Noun
 "ille, illa, illud",that (guy/gal/thing); he/she/it,8,"Adjective, Pronoun"
 "imāgō, imāginis, {f.}","image, picture",754,Noun
-"imperium, imperiī, {n.}","command, supreme power",200,
+"imperium, imperiī, {n.}","command, supreme power",200,Noun
 "imperō, imperāre, imperāvī, imperātum",to command,602,
 "īmus, īma, īmum",lowest,0,Adjective
-in,"in, on {with ablative}; into, onto, against, to {with accusative}; [[*in diēs* ""into days"" → ""day by day""]]",5,Preposition
+in,"in, on {(with ablative)}; into, onto, against, to {(with accusative)}; [[*in diēs* ""into days"" → ""day by day""]]",5,Preposition
 incendere,"to set on fire, kindle",0,
 "incipiō, incipere, incēpī, inceptum",to begin,411,Verb
 "īnfāns, īnfantis, {m./f.}",young child,0,"Noun, Adjective"
@@ -280,7 +284,7 @@ libenter,gladly,0,
 macte,well done!,0,Interjection
 magis,more,90,Adverb
 "magister, magistrī, {m.}",teacher,933,Noun
-"magistrātus, magistrātūs, {m.}","magistrate, public office",0,
+"magistrātus, magistrātūs, {m.}","magistrate, public office",0,Noun
 "magnus, magna, magnum","great; {(adverb, *maximē*)} especially",25,Adjective
 "maior, maius",greater,25,Adjective
 "mālō, mālle, māluī",to prefer,598,Verb
@@ -292,7 +296,7 @@ Marcius,Marcius {(the family name of Coriolanus)},0,
 "mare, maris, {n.}",sea,125,Noun
 "māter, mātris, {f.}",mother,127,Noun
 "mātrōna, mātrōnae, {f.}",married woman,0,
-"maximus, maxima, maximum",greatest,25,
+"maximus, maxima, maximum",greatest,25,Adjective
 "melior, melius",better,68,Adjective
 "mēns, mentis, {f.}",mind,173,Noun
 "mēnsa, mēnsae, {f.}",table,747,Noun
@@ -329,12 +333,12 @@ neque,and...not; {(*neque ... neque*)} neither ... nor,72,Conjunction
 "nesciō, nescīre, nescīvī, nescītum",to not know,525,Verb
 "nihil, nīl",nothing,55,Noun
 nimis,too much,841,Adverb
-"nōbilis, nōbile",noble,455,
+"nōbilis, nōbile",noble,455,Adjective
 "nocturnus, nocturna, nocturnum",of the night,0,Adjective
 "nōlī, nōlīte",don't!,0,
 "nōlō, nōlle, nōluī",to not want,458,Verb
 "nōmen, nōminis, {n.}",name,135,Noun
-nōn,not,6,
+nōn,not,6,Adverb
 nōnne,isn't? surely?,0,
 "nōs, nostrī / nostrum, nōbīs, nōs, nōbīs","we, us {(personal pronoun, plural)}",51,Pronoun
 "noster, nostra, nostrum",our,52,Adjective
@@ -365,9 +369,9 @@ optiō,choice,0,
 "parvus, parva, parvum",small,143,Adjective
 "pater, patris, {m.}",father,71,Noun
 "patria, patriae, {f.}",native land,342,Noun
-"patricius, patricia, patricium",patrician,0,
+"patricius, patricia, patricium",patrician,0,Adjective
 paulum,a little,872,Adverb
-"pauper, {(gen.)} pauperis",poor,844,
+"pauper, {(gen.)} pauperis",poor,844,"Adjective, Noun"
 "pāx, pācis, {f.}",peace,388,Noun
 "pecūnia, pecūniae, {f.}",money,530,Noun
 "pecus, pecoris, {n.}","livestock, herd",566,
@@ -379,7 +383,7 @@ pertinēre,"to pertain, extend to; to belong to {(of lineage)}",866,
 "pēs, pedis, {m.}",foot,199,Noun
 "placeō, placēre, placuī, placitum",to please,287,Verb
 "plēbēius, plēbēia, plēbēium",plebeian,0,
-"plēbs, plēbis, {f.}",the common people,649,
+"plēbs, plēbis, {f.}",the common people,649,Noun
 "poena, poenae, {f.}","punishment, penalty",223,Noun
 "poēta, poētae, {m.}",poet,913,Noun
 "pōnō, pōnere, posuī, positum","to put; to set up {(of a statue or monument, *statuam*)}",102,Verb
@@ -398,6 +402,8 @@ praetereā,besides,681,Adverb
 prīmum,first,252,"Adjective, Adverb"
 "prīmus, prīma, prīmum","first; [[*cum prīmum* ""when first"" → ""as soon as""]]",91,Adjective
 prō,in front of; on behalf of,128,Preposition
+"prōlēs, prōlis, {f.}",offspring,0,Noun
+"prōlētārius, prōlētāriī, {m.}","proletarian {a citizen too poor to be rated for property, who gave the state only his offspring, *prōlēs*}",0,Noun
 prope,near,189,Preposition
 "prōpositum, prōpositī, {n.}",purpose,0,Noun
 "pūblicus, pūblica, pūblicum",public,517,Adjective
@@ -448,21 +454,21 @@ satis,enough,341,Adverb
 "sciō, scīre, scīvī, scītum",to know,172,Verb
 "scrībō, scrībere, scrīpsī, scrīptum",to write,568,Verb
 "sēcēdō, sēcēdere, sēcessī, sēcessum",to withdraw,0,
-"secessiō, secessiōnis, {f.}","withdrawal {(of the plebs from the city, in protest)}",0,
+"secessiō, secessiōnis, {f.}","withdrawal {(of the plebs from the city, in protest)}",0,Noun
 sēcrētō,in secret,0,Adverb
 "secundus, secunda, secundum",second,836,Adjective
 sed,but,20,Conjunction
 semel,once,789,Adverb
 semper,always,149,Adverb
-"senātor, senātōris, {m.}",senator,0,
-"senātus, senātūs, {m.}",senate,329,
+"senātor, senātōris, {m.}",senator,0,Noun
+"senātus, senātūs, {m.}",senate,329,Noun
 "senex, senis, {m.}",old man,558,"Noun, Adjective"
 "sententia, sententiae, {f.}",opinion; sentence,586,Noun
 "sentiō, sentīre, sēnsī, sēnsum",to feel,302,Verb
 "serpēns, serpentis, {m./f.}",snake,0,Noun
 "servitium, servitiī, {n.}","slavery, servitude",0,
 "servō, servāre, servāvī, servātum",to save; to keep,289,Verb
-"servus, servī, {m.}",slave,496,Noun
+"servus, servī, {m.}",enslaved man,496,Noun
 sex,six,0,
 "sextus, sexta, sextum","sixth; Sextus {(a Roman praenomen, as a proper name)}",0,Adjective
 sī,if,16,Conjunction
@@ -472,7 +478,7 @@ sīcut,just like,791,Conjunction
 "signum, signī, {n.}",sign,261,Noun
 "silva, silvae, {f.}",forest,234,Noun
 "similis, simile","similar, like",414,Adjective
-simul,at same time,274,
+simul,at same time,274,Adverb
 sine,without,104,Preposition
 "sōl, sōlis, {m.}",sun,320,Noun
 "sōlus, sōla, sōlum",alone; {(*sōlum*)} only {(especially in the phrase *nōn sōlum ... sed etiam ...*)},176,Adjective
@@ -483,6 +489,7 @@ statim,immediately,798,
 "statua, statuae, {f.}",statue,0,
 "studeō, studēre, studuī, studitum",be enthusiastic about; study,989,Verb
 subitō,suddenly,848,Adverb
+"suffrāgium, suffrāgiī, {n.}",vote,0,Noun
 "--, suī, sibi, sē, sē","himself, herself, itself",17,Pronoun
 "sum, esse, fuī, futūrum",to be,2,Verb
 "summus, summa, summum",highest,99,Adjective
@@ -515,7 +522,7 @@ tot,so many,259,Adjective
 trāns,across,0,
 trecentī,three hundred,0,
 "trēs, tria",three,533,Adjective
-"tribūnus, tribūnī, {m.}","tribune {(there were several kinds, the best known being the tribunes of the *plēbs*, who protected the common people)}",807,
+"tribūnus, tribūnī, {m.}","tribune {(there were several kinds, the best known being the tribunes of the *plēbs*, who protected the common people)}",807,Noun
 "tribūtum, tribūtī, {n.}",tax,0,
 "trīstis, trīste",sad,275,Adjective
 "trīstitia, trīstitiae, {f.}",sadness,0,
@@ -552,7 +559,7 @@ vel,or,141,"Conjunction, Adverb"
 virtūs,"courage, manliness",111,
 "vīs, vīs, {f.}",force,115,Noun
 "vīta, vītae, {f.}",life,87,Noun
-vīvitur,"living is happening, I'm okay",0,
+vīvitur,"living is happening, I'm okay",0,Verb
 "vīvō, vīvere, vīxī, vīctum",to live,156,Verb
 "vīvus, vīva, vīvum",alive,0,Adjective
 "ūllus, ūlla, ūllum",any,178,
