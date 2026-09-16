@@ -86,17 +86,18 @@ clam,secretly,0,Adverb
 Collātīnus,"one of the two Roman leaders, husband of Lucrētia",0,
 "colō, colere, coluī, cultum",to cultivate,333,Verb
 "color, colōris, {m.}",color,725,Noun
-"comitia, comitiōrum, {n. pl.}",assembly {where Romans elected their magistrates},0,
+"comitia, comitiōrum, {n. pl.}",assembly {(where Romans elected their magistrates)},0,
 "concēdō, concēdere, concessī, concessum",to yield; to grant,663,Verb
 "concordia, concordiae, {f.}","concord, harmony",0,
 "condō, condere, condidī, conditum","to put away; to found {(of a city, *urbem*)}",540,Verb
 "coniūnx, coniugis, {m./f.}",spouse,218,Noun
 "cōnsilium, cōnsiliī, {n.}",plan,217,Noun
-"cōnsul, cōnsulis, {m.}",consul,321,
+"cōnsul, cōnsulis, {m.}","consul {(one of the two chief officials of Rome, elected for one year)}",321,
 "cōnsūmō, cōnsūmere, cōnsūmpsī, cōnsūmptum","to use up; to burn up {(of fire, *ignēs*)}",869,Verb
 contrā,opposite; against,271,"Adverb, Preposition"
 "convīvium, convīviī, {n.}",banquet,921,Noun
 "cōpia, cōpiae, {f.}",amount; plenty,331,Noun
+"Coriolānus, Coriolānī, {m.}",Coriolanus {(a Roman noble who led the Volscians against Rome)},0,
 "cornū, cornūs, {n.}",horn,591,Noun
 "corpus, corporis, {n.}",body,75,Noun
 cotīdiē,every day,0,Adverb
@@ -147,7 +148,6 @@ diū,for a long time,361,Adverb
 "dūcō, dūcere, dūxī, ductum",to lead,133,Verb
 "duo, duae, duo",two,221,Adjective
 "dux, ducis, {m./f.}",leader,239,Noun
-"ē, ex",out of,0,Preposition
 ecce,behold,643,Interjection
 "effugiō, effugere, effūgī",to escape,0,Verb
 "ego, meī, mihī̆, mē, mē",I,11,Pronoun
@@ -242,7 +242,7 @@ inter,"between, among",64,Preposition
 "ipse, ipsa, ipsum","himself, herself, itself",22,"Adjective, Pronoun"
 "īra, īrae, {f.}",anger,187,Noun
 "īrātus, īrāta, īrātum",angry,809,Adjective
-"is, ea, id","she / her / it, that",13,"Adjective, Pronoun"
+"is, ea, id",he / she / it; that,13,"Adjective, Pronoun"
 ita,so,120,Adverb
 "Ītalia, Ītaliae, {f.}",Italia,0,Noun
 itaque,therefore,208,Noun
@@ -288,7 +288,7 @@ magis,more,90,Adverb
 "malus, mala, malum",bad,227,Adjective
 "maneō, manēre, mānsī, mānsum",to remain,357,Verb
 "manus, manūs, {f.}",hand,48,Noun
-Marcius,Marcius {the family name of Coriolanus},0,
+Marcius,Marcius {(the family name of Coriolanus)},0,
 "mare, maris, {n.}",sea,125,Noun
 "māter, mātris, {f.}",mother,127,Noun
 "mātrōna, mātrōnae, {f.}",married woman,0,
@@ -336,7 +336,7 @@ nimis,too much,841,Adverb
 "nōmen, nōminis, {n.}",name,135,Noun
 nōn,not,6,
 nōnne,isn't? surely?,0,
-"nōs, nostrī / nostrum, nōbīs, nōs, nōbīs","we, us {personal pronoun, plural}",51,Pronoun
+"nōs, nostrī / nostrum, nōbīs, nōs, nōbīs","we, us {(personal pronoun, plural)}",51,Pronoun
 "noster, nostra, nostrum",our,52,Adjective
 "novus, nova, novum",new,139,Adjective
 "nox, noctis, {f.}",night,119,Noun
@@ -400,7 +400,7 @@ prīmum,first,252,"Adjective, Adverb"
 prō,in front of; on behalf of,128,Preposition
 prope,near,189,Preposition
 "prōpositum, prōpositī, {n.}",purpose,0,Noun
-"pūblicus, pūblica, pūblicum","public; [[*rēs pūblica* ""the public thing"" → ""the republic""]]",517,Adjective
+"pūblicus, pūblica, pūblicum",public,517,Adjective
 pudīcitia,chastity,0,
 "pudor, pudōris, {m.}",shame,616,Noun
 "puella, puellae, {f.}",girl,233,Noun
@@ -427,8 +427,9 @@ quoque,also,76,Adverb
 "relinquō, relinquere, relīquī, relictum",to leave,144,Verb
 "rēpō, rēpere, rēpsī, rēptum",to crawl,0,
 "reprehendō, reprehendere, reprehendī, reprehēnsum",to rebuke,0,
-"rēs, reī, {f.}","thing; [[*rēs pūblica* ""the public thing"" → ""the republic""]]",38,Noun
+"rēs, reī, {f.}",thing,38,Noun
 "respondeō, respondēre, respondī, respōnsum",to answer,535,Verb
+"rēs pūblica, reī pūblicae, {f.}","""the public thing"" → ""the government""",517,Noun
 "rēx, rēgis, {m.}",king,60,Noun
 "rīdeō, rīdēre, rīsī, rīsum",to laugh,874,Verb
 "rīpa, rīpae, {f.}",riverbank,662,Noun
@@ -447,7 +448,7 @@ satis,enough,341,Adverb
 "sciō, scīre, scīvī, scītum",to know,172,Verb
 "scrībō, scrībere, scrīpsī, scrīptum",to write,568,Verb
 "sēcēdō, sēcēdere, sēcessī, sēcessum",to withdraw,0,
-"secessiō, secessiōnis, {f.}","withdrawal {of the plebs from the city, in protest}",0,
+"secessiō, secessiōnis, {f.}","withdrawal {(of the plebs from the city, in protest)}",0,
 sēcrētō,in secret,0,Adverb
 "secundus, secunda, secundum",second,836,Adjective
 sed,but,20,Conjunction
@@ -488,10 +489,10 @@ subitō,suddenly,848,Adverb
 "sūmō, sūmere, sūmpsī, sūmptum",pick up,454,Verb
 "superbia, superbiae, {f.}",arrogance,0,
 "supplex, {(gen.)} supplicis",suppliant,0,Adjective
-"supplicium, suppliciī, {n.}",punishment {= *poena*},683,
+"supplicium, suppliciī, {n.}",punishment {(= *poena*)},683,
 "surgō (subrigō), surgere (subrigere), surrēxī, surrēctum",to rise,570,Verb
 "sustineō, sustinēre, sustinuī, sustentum",to hold up,762,Verb
-"suus, sua, suum",one's own {possessive adjective typically belonging to the subject of the clause},27,Adjective
+"suus, sua, suum",one's own {(possessive adjective typically belonging to the subject of the clause)},27,Adjective
 "tacitus, tacita, tacitum",silent,0,Adjective
 tam,so,96,Adverb
 tamen,"nevertheless, however",58,Adverb
@@ -514,7 +515,7 @@ tot,so many,259,Adjective
 trāns,across,0,
 trecentī,three hundred,0,
 "trēs, tria",three,533,Adjective
-"tribūnus, tribūnī, {m.}",tribune,807,
+"tribūnus, tribūnī, {m.}","tribune {(there were several kinds, the best known being the tribunes of the *plēbs*, who protected the common people)}",807,
 "tribūtum, tribūtī, {n.}",tax,0,
 "trīstis, trīste",sad,275,Adjective
 "trīstitia, trīstitiae, {f.}",sadness,0,
@@ -526,7 +527,7 @@ tunc,then,56,Adverb
 "turba, turbae, {f.}",crowd,323,Noun
 "turbāre, turbō, turbāvī, turbātum",to disturb,868,Verb
 "tūtus, tūta, tūtum",safe,365,Adjective
-"tuus, tua, tuum",your {possessive adjective referring to a singular possessor},44,Adjective
+"tuus, tua, tuum",your {(possessive adjective referring to a singular possessor)},44,Adjective
 "Valeria, Valeriae, {f.}","Valeria, Cloelia's mother",0,
 "validus, valida, validum",strong,816,
 "vāllum, vāllī, {n.}",rampart,0,
@@ -540,7 +541,7 @@ vel,or,141,"Conjunction, Adverb"
 "verbum, verbī, {n.}",word,188,Noun
 "vērus, vēra, vērum {(adv. vērō)}","true; {(adverb, *vērō*)} however",410,Adjective
 "vestīmentum, vestīmentī, {n.}",clothing,0,
-"Veturia, Veturiae, {f.}",Veturia {the mother of Coriolanus},0,
+"Veturia, Veturiae, {f.}",Veturia {(the mother of Coriolanus)},0,
 "victor, victōris, {m.}",conqueror,340,"Noun, Adjective"
 "videō, vidēre, vīdī, vīsum",to see,31,Verb
 "vīlla, vīllae, {f.}",country house,0,
@@ -560,12 +561,12 @@ ultimō,"finally, at last",432,Adjective
 "vocō, vocāre, vocāvī, vocātum","to call; to summon {(to trial, *ad iūdicium*)}",158,Verb
 Vōcula,"the Soft-Voiced, Cloelia's father's nickname",0,
 "volō, velle, voluī",to want,66,Verb
-"Volscī, Volscōrum, {m. pl.}","Volscians {a people of Latium, at war with Rome}",0,
-Volumnia,Volumnia {the wife of Coriolanus},0,
+"Volscī, Volscōrum, {m. pl.}","Volscians {(a people of Latium, at war with Rome)}",0,
+Volumnia,Volumnia {(the wife of Coriolanus)},0,
 "vōs, vestrum/vestrī, vōbīs, vōs, vōbīs",you,130,Pronoun
 "vōtum, vōtī, {n.}",vow; pledge,334,Noun
 "vōx, vōcis, {f.}",voice,169,Noun
 "urbs, urbis, {f.}",city,82,Noun
-ūsque ad,"right up to, all the way to",0,
+ūsque ad,"right up to, all the way to",527,
 ut,as {(with indicative)},15,Conjunction
 "uxor, uxōris, {f.}",wife,552,Noun
