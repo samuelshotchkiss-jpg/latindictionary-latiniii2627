@@ -414,3 +414,140 @@ body {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
+/* --- The English side (the flip) ---------------------------------------------
+   The toggle sits above the search box: which way she is looking up is the first
+   thing to decide, and it must never be mistaken for a search result. */
+.direction-toggle {
+    display: inline-flex;
+    margin-bottom: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 2px 6px var(--shadow-color);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.direction-toggle[hidden], .wheel-sort[hidden] { display: none; }
+.direction-toggle button, .wheel-sort button {
+    font: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--accent-color);
+}
+.direction-toggle button { padding: 9px 18px; font-size: 0.95em; font-weight: 600; }
+.direction-toggle button[aria-pressed="true"],
+.wheel-sort button[aria-pressed="true"] {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+.direction-toggle button:focus-visible, .wheel-sort button:focus-visible,
+.option-latin:focus-visible, .pin-back:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.wheel-sort {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+.wheel-sort button { padding: 5px 14px; border-radius: 20px; font-size: 0.85em; font-weight: 600; background-color: var(--accent-secondary); }
+#word-wheel li.wheel-group {
+    cursor: default;
+    font-size: 0.78em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #777;
+    background-color: var(--primary-bg);
+    padding: 8px 20px;
+}
+#word-wheel li.wheel-group:hover { background-color: var(--primary-bg); color: #777; }
+
+/* Suggestions: the English word, then a quiet preview of the Latin it reaches. */
+.english-key { font-weight: 600; }
+.english-preview { color: #888; font-size: 0.9em; margin-left: 6px; }
+#suggestions-list .english-none { cursor: default; color: #777; font-style: italic; }
+#suggestions-list .english-none:hover { background-color: transparent; }
+
+/* The card for one English word: its Latin options, in the teacher's order. */
+.english-heading { font-style: italic; }
+.english-options { list-style: none; padding: 0; margin: 0; }
+.english-option {
+    padding: 14px 0 14px 14px;
+    border-left: 3px solid var(--border-color);
+    margin-bottom: 14px;
+}
+.english-option:first-child { border-left-color: var(--accent-color); }
+.option-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.option-latin {
+    font: inherit;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--accent-color);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-secondary);
+    text-underline-offset: 4px;
+}
+.option-latin:hover { text-decoration-color: var(--accent-color); }
+.option-pos {
+    font-family: 'SF Mono', SFMono-Regular, 'Courier New', monospace;
+    font-size: 0.8em;
+    color: #888;
+    text-transform: uppercase;
+}
+.option-gloss { font-size: 1.05em; margin-top: 4px; line-height: 1.5; }
+/* The guidance line answers "which one do I want?" -- it is the point of showing both. */
+.option-guidance {
+    margin-top: 6px;
+    padding: 6px 10px;
+    background-color: var(--accent-secondary);
+    border-radius: 6px;
+    font-size: 0.95em;
+}
+.option-tag { margin-top: 6px; font-size: 0.85em; color: #777; font-style: italic; }
+
+/* The forms strip: which form do I write? */
+.forms-strip { margin-top: 10px; }
+.forms-strip summary { cursor: pointer; font-weight: 600; font-size: 0.9em; color: var(--accent-color); user-select: none; }
+.forms-strip ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.forms-caption { font-size: 0.9em !important; font-style: italic; color: #666; margin: 8px 0 0 !important; }
+.form-chip {
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+.form-chip-latin { font-weight: 700; }
+.form-chip-label { color: #444; }
+.form-chip-cite { color: #999; font-size: 0.85em; white-space: nowrap; }
+
+/* The way back to the English word she clicked through from. */
+.pin-back {
+    font: inherit;
+    font-size: 0.9em;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    padding: 0 0 12px;
+}
+.pin-back:hover { text-decoration: underline; }
+.pin-key { font-style: italic; font-weight: 600; }
+
+@media (max-width: 768px) {
+    .direction-toggle { align-self: stretch; }
+    .direction-toggle button { flex: 1; padding: 12px 8px; }
+    .option-latin { font-size: 1.15em; }
+}

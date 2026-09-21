@@ -25,11 +25,28 @@
     const closeAboutModal = document.getElementById('close-about-modal');
     const closeAboutBtn = document.getElementById('close-about-btn');
     const aboutPharrLink = document.getElementById('about-pharr-link');
-    
+    const directionToggle = document.getElementById('direction-toggle');
+    const wordWheelTitle = document.getElementById('word-wheel-title');
+    const wheelSort = document.getElementById('wheel-sort');
+    const wheelLegend = document.getElementById('wheel-legend');
+
     // --- Global State Variables ---
     let vocabulary = new Array(); // Holds standard dictionary lemmata
     let formsList = new Array();  // Holds inflected grammar forms
     let studyList = new Array();  // Holds the user's saved words
+
+    // --- The English side (english.json, written by the toolkit's export_reverse.py) ---
+    // A KEY IS NOT A GLOSS. The English words here are what a student TYPES to find a Latin
+    // word; they are never shown as a definition. Each key lists its Latin options in the
+    // order the teacher ruled, each with a guidance line saying which one to pick and why.
+    let english = null;           // {keys: {english: [option]}, forms: {headword: strip}}
+    let englishKeys = new Array(); // the keys, alphabetical
+    let direction = 'la';          // 'la' = Latin -> English (the original app), 'en' = the flip
+    let wheelOrder = 'alpha';      // English word list: 'alpha' or 'text'
+    // ANCHOR-PINNING: each direction remembers where she was, so flipping back returns her
+    // to the English word she came from -- or the Latin word she was reading.
+    let lastEnglishKey = null;
+    let lastLatinWord = null;
     
     // Keys used for browser LocalStorage
     const STORAGE_KEY_LIST = 'latinStudyList';
@@ -556,12 +573,18 @@
     }
 
     // Renders the main definition card when a word is selected
-    function displayWordDetails(word, selectedFormObj = null) {
+    // `fromKey` is the English word she clicked through from, when there is one: the card then
+    // offers the way back to it, so a choice between options is never a one-way trip.
+    function displayWordDetails(word, selectedFormObj = null, fromKey = null) {
         if (!word) {
             resultDisplay.innerHTML = `<div class="placeholder-text"><p>Word not found.</p></div>`;
             return;
         }
+        lastLatinWord = word;
         const isSaved = studyList.includes(word.latin);
+        const backHtml = fromKey
+            ? `<button type="button" class="pin-back">← Back to the English <span class="pin-key">${escapeHTML(fromKey)}</span></button>`
+            : '';
         
         // Dynamically sets button color/text based on save state
         const buttonHtml = `<button class="btn add-to-list-btn-action ${isSaved ? 'btn-danger' : 'btn-primary'}">${isSaved ? 'Remove from List' : 'Add to List'}</button>`;
@@ -602,6 +625,7 @@
 
         // Injects the final parsed HTML into the screen
         resultDisplay.innerHTML = `
+            ${backHtml}
             <div class="result-header">
                 <h2>${formatHeadwordHTML(word.latin)}</h2>
                 ${buttonHtml}
@@ -626,9 +650,11 @@
             btn.addEventListener('click', () => {
                 if (isSaved) removeFromStudyList(word.latin);
                 else addToStudyList(word.latin);
-                displayWordDetails(word, selectedFormObj); 
+                displayWordDetails(word, selectedFormObj, fromKey);
             });
         });
+        const back = resultDisplay.querySelector('.pin-back');
+        if (back) back.addEventListener('click', () => setDirection('en'));
 
         updateWordWheelSelection(word.latin);
         
@@ -644,7 +670,8 @@
         const items = wordWheel.querySelectorAll('li');
         let newSelectedItem = null;
         for (const item of items) {
-            if (item.dataset.latin === latinWord) {
+            // The same list holds English words on the English side (data-key).
+            if (item.dataset.latin === latinWord || item.dataset.key === latinWord) {
                 newSelectedItem = item;
                 break;
             }
@@ -804,10 +831,193 @@
         e.target.value = ''; // Resets the input so the same file can be uploaded again if needed
     }
 
+    // --- The English side ------------------------------------------------------------------
+    //
+    // WHAT IT IS FOR. The Latin side answers "what does this word mean?". A student writing
+    // Latin needs the other question -- "how do I say this?" -- and the answer should steer
+    // her toward the words the class is practising, not the whole of Latin. So every option
+    // is one the class has met, in the teacher's order, and each says WHERE she met it.
+    //
+    // WHAT IT DOES NOT DO: judge. When one English word honestly means two Latin words
+    // (`fellow`: vir and homō) both are shown, with the guidance line that tells them apart.
+    // Seeing the contrast at the moment of choosing is the lesson.
+
+    // English is matched the way Latin is: from the START of any word in the key, so `elect`
+    // finds "elect" and "elected official" but `lect` finds nothing.
+    function englishNorm(str) {
+        return ' ' + String(str || '').toLowerCase()
+            .normalize('NFD').replace(/\p{Diacritic}/gu, '')
+            .replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    function onEnglishSearch(typed) {
+        const term = englishNorm(typed);
+        if (term.trim().length === 0) { suggestionsList.style.display = 'none'; return; }
+        const hits = new Array();
+        for (const k of englishKeys) {
+            const nk = englishNorm(k);
+            if (nk.indexOf(term) === -1) continue;
+            // exact first, then keys that BEGIN with what she typed, then shorter keys:
+            // `state` should not be buried under `statesman` and `state religion`.
+            hits.push({ key: k, rank: nk === term ? 0 : (nk.indexOf(term) === 0 ? 1 : 2) });
+        }
+        hits.sort((a, b) => a.rank - b.rank || a.key.length - b.key.length ||
+                            a.key.localeCompare(b.key));
+        suggestionsList.innerHTML = '';
+        if (hits.length === 0) {
+            const none = document.createElement('div');
+            none.className = 'english-none';
+            none.textContent = 'No Latin word in this dictionary is found under that English. ' +
+                               'Try a simpler word, or one with the same meaning.';
+            suggestionsList.appendChild(none);
+            suggestionsList.style.display = 'block';
+            return;
+        }
+        hits.slice(0, 10).forEach(h => {
+            const div = document.createElement('div');
+            const opts = english.keys[h.key];
+            const preview = opts.slice(0, 3).map(o => o.h.split(',')[0]).join(' · ') +
+                            (opts.length > 3 ? ' …' : '');
+            div.innerHTML = '<span class="english-key">' + escapeHTML(h.key) + '</span>' +
+                            ' <span class="english-preview">' + escapeHTML(preview) + '</span>';
+            div.addEventListener('mousedown', () => displayEnglishKey(h.key));
+            suggestionsList.appendChild(div);
+        });
+        suggestionsList.style.display = 'block';
+    }
+
+    // Where she met the word. The toolkit sends either the names of the texts it is read in,
+    // or one of two phrases for a word she has not read in a text yet.
+    function tagHTML(t) {
+        if (!t) return '';
+        const phrase = (t === 'known already' || t === 'on the study list');
+        return '<div class="option-tag">' + (phrase ? escapeHTML(t) : 'Read in ' + escapeHTML(t)) +
+               '</div>';
+    }
+
+    // THE FORMS STRIP: which form do I write? Only forms the class's own texts use, each with
+    // the English it translates and where it was read. The label is the English, never a
+    // grammar term -- "(they) are elected", not "3rd plural present passive".
+    function formsStripHTML(headword) {
+        const strip = english.forms[headword];
+        if (!strip || !strip.f.length) return '';
+        const chips = strip.f.map(f => {
+            const [form, label, cite] = f;
+            return '<li class="form-chip"><span class="form-chip-latin">' + escapeHTML(form) +
+                   '</span>' + (label ? ' <span class="form-chip-label">' + escapeHTML(label) +
+                   '</span>' : '') + (cite ? ' <span class="form-chip-cite">' + escapeHTML(cite) +
+                   '</span>' : '') + '</li>';
+        }).join('');
+        return '<details class="forms-strip"><summary>Forms in your texts (' + strip.f.length +
+               ')</summary>' + (strip.c ? '<p class="forms-caption">' + escapeHTML(strip.c) +
+               '</p>' : '') + '<ul>' + chips + '</ul></details>';
+    }
+
+    function displayEnglishKey(key) {
+        const opts = english && english.keys[key];
+        if (!opts) return;
+        lastEnglishKey = key;
+        const many = opts.length > 1;
+        const items = opts.map((o, i) => {
+            const pos = o.i ? 'Idiom' : o.p;
+            return '<li class="english-option">' +
+                '<div class="option-head"><button type="button" class="option-latin" data-i="' + i +
+                '">' + formatHeadwordHTML(escapeHTML(o.h)) + '</button>' +
+                (pos ? ' <span class="option-pos">' + escapeHTML(pos) + '</span>' : '') + '</div>' +
+                (o.g ? '<div class="option-gloss">' + formatDefinitionHTML(o.g) + '</div>' : '') +
+                // Guidance is the "which one?" answer, so it is shown only when there IS a choice.
+                (many && o.u ? '<div class="option-guidance">' + escapeHTML(o.u) + '</div>' : '') +
+                tagHTML(o.t) +
+                (o.i ? '' : formsStripHTML(o.go)) +
+                '</li>';
+        }).join('');
+        resultDisplay.innerHTML =
+            '<div class="result-header"><h2 class="english-heading">' + escapeHTML(key) + '</h2></div>' +
+            '<div class="part-of-speech">' + (many ? opts.length + ' Latin words — choose the one that fits'
+                                                   : 'In Latin') + '</div>' +
+            '<ol class="english-options">' + items + '</ol>';
+        resultDisplay.querySelectorAll('.option-latin').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const o = opts[Number(btn.dataset.i)];
+                const word = vocabulary.find(w => w.latin === o.go);
+                if (!word) return;
+                setDirection('la', true);
+                displayWordDetails(word, null, key);
+            });
+        });
+        searchInput.value = key;
+        suggestionsList.style.display = 'none';
+        updateWordWheelSelection(key);
+    }
+
+    // The English word list. A-Z first (owner's ruling); "By text" groups the words under the
+    // text their first option is read in, which is where a student writing about the
+    // Comitia would look.
+    function populateEnglishWheel() {
+        wordWheel.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+        const addItem = (k) => {
+            const li = document.createElement('li');
+            li.textContent = k;
+            li.dataset.key = k;
+            fragment.appendChild(li);
+        };
+        if (wheelOrder === 'alpha') {
+            englishKeys.forEach(addItem);
+        } else {
+            const groups = new Map();
+            englishKeys.forEach(k => {
+                const t = (english.keys[k][0] || {}).t || '';
+                const names = (t && t !== 'known already' && t !== 'on the study list')
+                    ? t.split(', ') : Array.of(t ? 'Not read in a text yet' : 'Other words');
+                names.forEach(n => {
+                    if (!groups.has(n)) groups.set(n, new Array());
+                    groups.get(n).push(k);
+                });
+            });
+            const late = ['Not read in a text yet', 'Other words'];
+            const order = Array.from(groups.keys()).sort((a, b) =>
+                (late.indexOf(a) - late.indexOf(b)) || a.localeCompare(b));
+            order.forEach(name => {
+                const h = document.createElement('li');
+                h.className = 'wheel-group';
+                h.textContent = name + ' (' + groups.get(name).length + ')';
+                fragment.appendChild(h);
+                groups.get(name).forEach(addItem);
+            });
+        }
+        wordWheel.appendChild(fragment);
+    }
+
+    // Flip the dictionary. `quiet` skips restoring the view -- used when the caller is about
+    // to draw a card itself (clicking a Latin option draws that word, not the last one).
+    function setDirection(dir, quiet = false) {
+        direction = dir;
+        directionToggle.querySelectorAll('button').forEach(b =>
+            b.setAttribute('aria-pressed', String(b.dataset.dir === dir)));
+        document.body.classList.toggle('english-mode', dir === 'en');
+        searchInput.placeholder = dir === 'en' ? 'Type an English word...' : 'Type a Latin word...';
+        wordWheelTitle.textContent = dir === 'en' ? 'English words' : 'Vocabulary List';
+        wheelSort.hidden = dir !== 'en';
+        wheelLegend.hidden = dir === 'en';
+        suggestionsList.style.display = 'none';
+        searchInput.value = '';
+        if (dir === 'en') populateEnglishWheel();
+        else { populateWordWheel(); updateWordWheelStyles(); }
+        if (quiet) return;
+        if (dir === 'en' && lastEnglishKey) displayEnglishKey(lastEnglishKey);
+        else if (dir === 'la' && lastLatinWord) displayWordDetails(lastLatinWord);
+        else resultDisplay.innerHTML = '<div class="placeholder-text"><p>' +
+            (dir === 'en' ? 'Type an English word to find the Latin for it.'
+                          : 'Search for a word or select one from the list to see its details.') +
+            '</p></div>';
+    }
+
     // --- Event Handlers (The Search Engine) ---
 
     function onSearchInput(e) {
         const typedSearchTerm = e.target.value;
+        if (direction === 'en') { onEnglishSearch(typedSearchTerm); return; }
 
         if (normalizeForSearch(typedSearchTerm).length === 0) {
             suggestionsList.style.display = 'none';
@@ -1016,7 +1226,12 @@
 
     // Handles clicks on the left-hand alphabetical sidebar
     function onWordWheelClick(e) {
-        if (e.target && e.target.nodeName === "LI") {
+        if (e.target && e.target.nodeName === "LI" && e.target.dataset.key) {
+            displayEnglishKey(e.target.dataset.key);
+            if (window.innerWidth <= 768) closeMobileMenu();
+            return;
+        }
+        if (e.target && e.target.nodeName === "LI" && e.target.dataset.latin) {
             const latinWord = e.target.dataset.latin;
             const wordObject = vocabulary.find(w => w.latin === latinWord);
             if (wordObject) {
@@ -1096,6 +1311,7 @@
 
             populateWordWheel();
             updateWordWheelStyles();
+            loadEnglish();
         })
         .catch(error => {
             console.error('Error fetching dictionaries:', error);
@@ -1155,6 +1371,35 @@
 
     function hideAboutModal() {
         aboutModal.style.display = 'none';
+    }
+
+    // The English side is OPTIONAL: fetched after the Latin side is up, and if english.json
+    // is missing or broken the toggle simply never appears -- the dictionary a student already
+    // relies on is never held hostage to the new half.
+    function loadEnglish() {
+        fetch('english.json')
+            .then(r => { if (!r.ok) throw new Error('no english.json'); return r.json(); })
+            .then(data => {
+                if (!data || !data.keys) return;
+                english = data;
+                // Words A-Z, with the few numeral keys (`2`, `10`, `5th`) after them rather than
+                // opening the list: they are there to be typed, not browsed.
+                const numeric = k => /^[0-9]/.test(k) ? 1 : 0;
+                englishKeys = Object.keys(data.keys).sort((a, b) =>
+                    (numeric(a) - numeric(b)) || a.localeCompare(b));
+                directionToggle.hidden = false;
+                directionToggle.querySelectorAll('button').forEach(b =>
+                    b.addEventListener('click', () => { if (b.dataset.dir !== direction) setDirection(b.dataset.dir); }));
+                wheelSort.querySelectorAll('button').forEach(b =>
+                    b.addEventListener('click', () => {
+                        wheelOrder = b.dataset.sort;
+                        wheelSort.querySelectorAll('button').forEach(x =>
+                            x.setAttribute('aria-pressed', String(x === b)));
+                        populateEnglishWheel();
+                        if (lastEnglishKey) updateWordWheelSelection(lastEnglishKey);
+                    }));
+            })
+            .catch(err => console.info('[english] English side not available: ' + err.message));
     }
 
     document.addEventListener('DOMContentLoaded', initialize);
