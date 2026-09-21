@@ -542,3 +542,10 @@ body {
     .direction-toggle button { flex: 1; padding: 12px 8px; }
     .option-latin { font-size: 1.15em; }
 }
+
+/* A form whose English is the word she searched for: first in the strip, and marked. */
+.form-chip.form-match {
+    background-color: var(--accent-secondary);
+    border-color: var(--accent-color);
+}
+.form-chip.form-match .form-chip-latin { color: var(--accent-color); }

@@ -919,12 +919,36 @@
     // THE FORMS STRIP: which form do I write? Only forms the class's own texts use, each with
     // the English it translates and where it was read. The label is the English, never a
     // grammar term -- "(they) are elected", not "3rd plural present passive".
-    function formsStripHTML(headword) {
+    // THE FORMS SHE ASKED FOR COME FIRST. Under an English word, any form whose English
+    // contains that word -- as a whole word -- rises to the top of the strip and is marked.
+    // That is what makes `sum` usable at all: its "synonyms" (am, is, was, been) are not other
+    // Latin words but other FORMS of this one, so `was` must put erat and eram in front of
+    // her, not sum. The same rule serves every verb: `elected` lifts "(he/she/it) is elected".
+    // A key of four letters or more also matches the START of a word, so `elect` finds
+    // "elected" and "electing". A shorter one must match whole -- `be` is not "been", and
+    // `is` must not light up every word that begins with those two letters.
+    function labelText(label) {
+        return label.toLowerCase().replace(/\([^)]*\)/g, ' ')
+                    .replace(/[^a-z' ]+/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+    function labelMatches(label, key) {
+        if (!key || !label) return false;
+        const k = key.toLowerCase().trim();
+        const text = ' ' + labelText(label) + ' ';
+        return k.length >= 4 ? text.indexOf(' ' + k) !== -1 : text.indexOf(' ' + k + ' ') !== -1;
+    }
+
+    function formsStripHTML(headword, key) {
         const strip = english.forms[headword];
         if (!strip || !strip.f.length) return '';
-        const chips = strip.f.map(f => {
+        // the closest match first: under `be`, "to be" (esse) before "(we) will be"
+        const hits = strip.f.filter(f => labelMatches(f[1], key))
+                            .sort((a, b) => labelText(a[1]).length - labelText(b[1]).length);
+        const rest = strip.f.filter(f => !labelMatches(f[1], key));
+        const chips = hits.concat(rest).map(f => {
             const [form, label, cite] = f;
-            return '<li class="form-chip"><span class="form-chip-latin">' + escapeHTML(form) +
+            return '<li class="form-chip' + (labelMatches(label, key) ? ' form-match' : '') +
+                   '"><span class="form-chip-latin">' + escapeHTML(form) +
                    '</span>' + (label ? ' <span class="form-chip-label">' + escapeHTML(label) +
                    '</span>' : '') + (cite ? ' <span class="form-chip-cite">' + escapeHTML(cite) +
                    '</span>' : '') + '</li>';
@@ -958,7 +982,7 @@
                 // Guidance is the "which one?" answer, so it is shown only when there IS a choice.
                 (many && o.u ? '<div class="option-guidance">' + escapeHTML(o.u) + '</div>' : '') +
                 tagHTML(o.t) +
-                (o.i ? '' : formsStripHTML(o.go)) +
+                (o.i ? '' : formsStripHTML(o.go, key)) +
                 '</li>';
         }).join('');
         resultDisplay.innerHTML =
