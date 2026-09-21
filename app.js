@@ -27,7 +27,6 @@
     const aboutPharrLink = document.getElementById('about-pharr-link');
     const directionToggle = document.getElementById('direction-toggle');
     const wordWheelTitle = document.getElementById('word-wheel-title');
-    const wheelSort = document.getElementById('wheel-sort');
     const wheelLegend = document.getElementById('wheel-legend');
 
     // --- Global State Variables ---
@@ -42,11 +41,14 @@
     let english = null;           // {keys: {english: [option]}, forms: {headword: strip}}
     let englishKeys = new Array(); // the keys, alphabetical
     let direction = 'la';          // 'la' = Latin -> English (the original app), 'en' = the flip
-    let wheelOrder = 'alpha';      // English word list: 'alpha' or 'text'
-    // ANCHOR-PINNING: each direction remembers where she was, so flipping back returns her
-    // to the English word she came from -- or the Latin word she was reading.
-    let lastEnglishKey = null;
-    let lastLatinWord = null;
+    // THE FLIP LANDS ON THE COUNTERPART OF WHAT IS ON SCREEN. It used to land on whatever
+    // she had last looked at on the other side, so `turbō` flipped to `fulfil` -- a word from
+    // an earlier search. Now: from a Latin word, the English she clicked through from, else
+    // the word's own anchor (`turbō` -> `disturb`); from an English word, the Latin she
+    // clicked, else its first option.
+    let lastEnglishKey = null;     // the English word on (or last on) the English side
+    let lastLatinWord = null;      // the Latin word on (or last on) the Latin side
+    let pin = null;                // {key, word}: the English word she clicked a Latin word from
     
     // Keys used for browser LocalStorage
     const STORAGE_KEY_LIST = 'latinStudyList';
@@ -242,7 +244,10 @@
     // all, and there the senses are drawn in one uniform weight rather than guessing
     // that the first one leads. Falls back to the single-line render for a word whose
     // CSV row predates the sense columns.
-    function formatSensesHTML(word) {
+    // `matched` (English side): the positions of the senses the English word reached. Those
+    // are highlighted and the rest drawn as usual -- she sees the whole word, with the
+    // meaning she searched for picked out.
+    function formatSensesHTML(word, matched = null) {
         if (!word.senses || word.senses.length === 0) {
             return `<p>${formatDefinitionHTML(word.definition)}</p>`;
         }
@@ -251,7 +256,8 @@
             : '';
         const senseHtml = word.senses.map((sense, i) => {
             const isCore = (i === word.coreSense);
-            return `<p class="sense${isCore ? ' sense-core' : ''}">${formatDefinitionHTML(sense)}</p>`;
+            const isMatch = matched && matched.includes(i);
+            return `<p class="sense${isCore ? ' sense-core' : ''}${isMatch ? ' sense-match' : ''}">${formatDefinitionHTML(sense)}</p>`;
         }).join('');
         return `${headingHtml}<div class="senses">${senseHtml}</div>`;
     }
@@ -895,6 +901,21 @@
                '</div>';
     }
 
+    // The strip starts OPEN -- the forms are what a writer needs -- but a student who closes
+    // it has said it is too much, so it stays closed, on every word, until she opens one again
+    // (owner, 2026-09-21). One preference for the whole app, kept in this browser only.
+    // Storage can be blocked (private windows): then it simply is not remembered.
+    const STORAGE_KEY_FORMS = 'formsStripClosed';
+    function formsClosed() {
+        try { return localStorage.getItem(STORAGE_KEY_FORMS) === '1'; } catch (e) { return false; }
+    }
+    function setFormsClosed(closed) {
+        try {
+            if (closed) localStorage.setItem(STORAGE_KEY_FORMS, '1');
+            else localStorage.removeItem(STORAGE_KEY_FORMS);
+        } catch (e) { /* blocked: not remembered */ }
+    }
+
     // THE FORMS STRIP: which form do I write? Only forms the class's own texts use, each with
     // the English it translates and where it was read. The label is the English, never a
     // grammar term -- "(they) are elected", not "3rd plural present passive".
@@ -908,7 +929,8 @@
                    '</span>' : '') + (cite ? ' <span class="form-chip-cite">' + escapeHTML(cite) +
                    '</span>' : '') + '</li>';
         }).join('');
-        return '<details class="forms-strip"><summary>Forms in your texts (' + strip.f.length +
+        return '<details class="forms-strip"' + (formsClosed() ? '' : ' open') +
+               '><summary>Forms in your texts (' + strip.f.length +
                ')</summary>' + (strip.c ? '<p class="forms-caption">' + escapeHTML(strip.c) +
                '</p>' : '') + '<ul>' + chips + '</ul></details>';
     }
@@ -920,11 +942,19 @@
         const many = opts.length > 1;
         const items = opts.map((o, i) => {
             const pos = o.i ? 'Idiom' : o.p;
+            // ONE OPTION: there is nothing to choose between, so show the WHOLE word with the
+            // meaning she searched for highlighted (owner, 2026-09-21). SEVERAL: show only the
+            // meaning each one has under this English word -- the distinctions are the point
+            // there, and a click on the word gives the fuller treatment.
+            const word = (!many && !o.i) ? vocabulary.find(w => w.latin === o.go) : null;
+            const meaning = word
+                ? '<div class="option-senses">' + formatSensesHTML(word, o.s || []) + '</div>'
+                : (o.g ? '<div class="option-gloss">' + formatDefinitionHTML(o.g) + '</div>' : '');
             return '<li class="english-option">' +
                 '<div class="option-head"><button type="button" class="option-latin" data-i="' + i +
                 '">' + formatHeadwordHTML(escapeHTML(o.h)) + '</button>' +
                 (pos ? ' <span class="option-pos">' + escapeHTML(pos) + '</span>' : '') + '</div>' +
-                (o.g ? '<div class="option-gloss">' + formatDefinitionHTML(o.g) + '</div>' : '') +
+                meaning +
                 // Guidance is the "which one?" answer, so it is shown only when there IS a choice.
                 (many && o.u ? '<div class="option-guidance">' + escapeHTML(o.u) + '</div>' : '') +
                 tagHTML(o.t) +
@@ -941,6 +971,7 @@
                 const o = opts[Number(btn.dataset.i)];
                 const word = vocabulary.find(w => w.latin === o.go);
                 if (!word) return;
+                pin = { key: key, word: word.latin };
                 setDirection('la', true);
                 displayWordDetails(word, null, key);
             });
@@ -950,42 +981,18 @@
         updateWordWheelSelection(key);
     }
 
-    // The English word list. A-Z first (owner's ruling); "By text" groups the words under the
-    // text their first option is read in, which is where a student writing about the
-    // Comitia would look.
+    // The English word list, A-Z. A second order (grouped by text, or by theme -- e.g. "words
+    // for describing a government") was built and retired for now (owner, 2026-09-21):
+    // alphabetical first, and the grouping decided once the class shows what it needs.
     function populateEnglishWheel() {
         wordWheel.innerHTML = '';
         const fragment = document.createDocumentFragment();
-        const addItem = (k) => {
+        englishKeys.forEach(k => {
             const li = document.createElement('li');
             li.textContent = k;
             li.dataset.key = k;
             fragment.appendChild(li);
-        };
-        if (wheelOrder === 'alpha') {
-            englishKeys.forEach(addItem);
-        } else {
-            const groups = new Map();
-            englishKeys.forEach(k => {
-                const t = (english.keys[k][0] || {}).t || '';
-                const names = (t && t !== 'known already' && t !== 'on the study list')
-                    ? t.split(', ') : Array.of(t ? 'Not read in a text yet' : 'Other words');
-                names.forEach(n => {
-                    if (!groups.has(n)) groups.set(n, new Array());
-                    groups.get(n).push(k);
-                });
-            });
-            const late = ['Not read in a text yet', 'Other words'];
-            const order = Array.from(groups.keys()).sort((a, b) =>
-                (late.indexOf(a) - late.indexOf(b)) || a.localeCompare(b));
-            order.forEach(name => {
-                const h = document.createElement('li');
-                h.className = 'wheel-group';
-                h.textContent = name + ' (' + groups.get(name).length + ')';
-                fragment.appendChild(h);
-                groups.get(name).forEach(addItem);
-            });
-        }
+        });
         wordWheel.appendChild(fragment);
     }
 
@@ -998,19 +1005,38 @@
         document.body.classList.toggle('english-mode', dir === 'en');
         searchInput.placeholder = dir === 'en' ? 'Type an English word...' : 'Type a Latin word...';
         wordWheelTitle.textContent = dir === 'en' ? 'English words' : 'Vocabulary List';
-        wheelSort.hidden = dir !== 'en';
         wheelLegend.hidden = dir === 'en';
         suggestionsList.style.display = 'none';
         searchInput.value = '';
         if (dir === 'en') populateEnglishWheel();
         else { populateWordWheel(); updateWordWheelStyles(); }
         if (quiet) return;
-        if (dir === 'en' && lastEnglishKey) displayEnglishKey(lastEnglishKey);
-        else if (dir === 'la' && lastLatinWord) displayWordDetails(lastLatinWord);
-        else resultDisplay.innerHTML = '<div class="placeholder-text"><p>' +
-            (dir === 'en' ? 'Type an English word to find the Latin for it.'
-                          : 'Search for a word or select one from the list to see its details.') +
-            '</p></div>';
+        if (dir === 'en') {
+            // from the Latin word on screen to its English
+            const w = lastLatinWord;
+            const key = !w ? null
+                : (pin && pin.word === w.latin) ? pin.key
+                : (english.anchor || {})[w.latin] || null;
+            // ...and pin the pair, so flipping straight back returns to THIS word, not to the
+            // English word's first option (`disturb` may list another verb first).
+            if (key && english.keys[key]) { pin = { key: key, word: w.latin }; displayEnglishKey(key); return; }
+            lastEnglishKey = null;
+            resultDisplay.innerHTML = '<div class="placeholder-text"><p>' + (w
+                ? 'No English word leads to <b>' + formatHeadwordHTML(escapeHTML(w.latin)) +
+                  '</b> yet.' : 'Type an English word to find the Latin for it.') + '</p></div>';
+            return;
+        }
+        // from the English word on screen to its Latin
+        const k = lastEnglishKey;
+        const opts = k && english.keys[k];
+        if (opts) {
+            const go = (pin && pin.key === k) ? pin.word : opts[0].go;
+            const word = vocabulary.find(w => w.latin === go);
+            if (word) { pin = { key: k, word: word.latin }; displayWordDetails(word, null, k); return; }
+        }
+        lastLatinWord = null;
+        resultDisplay.innerHTML = '<div class="placeholder-text"><p>Search for a word or select ' +
+            'one from the list to see its details.</p></div>';
     }
 
     // --- Event Handlers (The Search Engine) ---
@@ -1390,14 +1416,13 @@
                 directionToggle.hidden = false;
                 directionToggle.querySelectorAll('button').forEach(b =>
                     b.addEventListener('click', () => { if (b.dataset.dir !== direction) setDirection(b.dataset.dir); }));
-                wheelSort.querySelectorAll('button').forEach(b =>
-                    b.addEventListener('click', () => {
-                        wheelOrder = b.dataset.sort;
-                        wheelSort.querySelectorAll('button').forEach(x =>
-                            x.setAttribute('aria-pressed', String(x === b)));
-                        populateEnglishWheel();
-                        if (lastEnglishKey) updateWordWheelSelection(lastEnglishKey);
-                    }));
+                // Remember whether she closed the forms strips. `toggle` does not bubble, so
+                // it is caught on the way DOWN (capture) for every strip on every card.
+                resultDisplay.addEventListener('toggle', (e) => {
+                    if (e.target.classList && e.target.classList.contains('forms-strip')) {
+                        setFormsClosed(!e.target.open);
+                    }
+                }, true);
             })
             .catch(err => console.info('[english] English side not available: ' + err.message));
     }

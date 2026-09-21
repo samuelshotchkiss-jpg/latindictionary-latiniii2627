@@ -427,46 +427,37 @@ body {
     overflow: hidden;
     flex-shrink: 0;
 }
-.direction-toggle[hidden], .wheel-sort[hidden] { display: none; }
-.direction-toggle button, .wheel-sort button {
+.direction-toggle[hidden] { display: none; }
+.direction-toggle button {
     font: inherit;
     border: none;
     background: none;
     cursor: pointer;
     color: var(--accent-color);
+    padding: 9px 18px;
+    font-size: 0.95em;
+    font-weight: 600;
 }
-.direction-toggle button { padding: 9px 18px; font-size: 0.95em; font-weight: 600; }
-.direction-toggle button[aria-pressed="true"],
-.wheel-sort button[aria-pressed="true"] {
+.direction-toggle button[aria-pressed="true"] {
     background-color: var(--accent-color);
     color: var(--accent-text-color);
 }
-.direction-toggle button:focus-visible, .wheel-sort button:focus-visible,
+.direction-toggle button:focus-visible,
 .option-latin:focus-visible, .pin-back:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
 
-.wheel-sort {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    padding: 10px;
-    border-bottom: 1px solid var(--border-color);
-    flex-shrink: 0;
+/* One option: the whole word is drawn, and the meaning the English reached is marked --
+   a tint and a heavier rule, so it stands out without hiding the other senses. */
+.option-senses { margin-top: 6px; }
+#result-display .sense.sense-match {
+    background-color: var(--accent-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 0 6px 6px 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-.wheel-sort button { padding: 5px 14px; border-radius: 20px; font-size: 0.85em; font-weight: 600; background-color: var(--accent-secondary); }
-#word-wheel li.wheel-group {
-    cursor: default;
-    font-size: 0.78em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #777;
-    background-color: var(--primary-bg);
-    padding: 8px 20px;
-}
-#word-wheel li.wheel-group:hover { background-color: var(--primary-bg); color: #777; }
 
 /* Suggestions: the English word, then a quiet preview of the Latin it reaches. */
 .english-key { font-weight: 600; }
