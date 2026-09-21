@@ -39,7 +39,8 @@
     // word; they are never shown as a definition. Each key lists its Latin options in the
     // order the teacher ruled, each with a guidance line saying which one to pick and why.
     let english = null;           // {keys: {english: [option]}, forms: {headword: strip}}
-    let englishKeys = new Array(); // the keys, alphabetical
+    let englishKeys = new Array(); // every key, for search
+    let wheelKeys = new Array();   // the keys the A-Z list shows: not the generated inflections
     let direction = 'la';          // 'la' = Latin -> English (the original app), 'en' = the flip
     // THE FLIP LANDS ON THE COUNTERPART OF WHAT IS ON SCREEN. It used to land on whatever
     // she had last looked at on the other side, so `turbō` flipped to `fulfil` -- a word from
@@ -985,8 +986,17 @@
                 (o.i ? '' : formsStripHTML(o.go, key)) +
                 '</li>';
         }).join('');
+        // A GENERATED FORM SAYS WHAT IT IS: "went — the past of go". The student learns where
+        // the word she typed sits, and the forms strip below lifts the Latin that matches it.
+        const kinds = Array.from(new Set(opts.filter(o => o.x).map(o => o.x)));
+        const inflHtml = kinds.length
+            ? '<div class="english-inflection">“' + escapeHTML(key) + '” is the ' +
+              kinds.map(x => escapeHTML(x).replace(/ of (.+)$/, ' of “$1”')).join(', or the ') +
+              '</div>'
+            : '';
         resultDisplay.innerHTML =
             '<div class="result-header"><h2 class="english-heading">' + escapeHTML(key) + '</h2></div>' +
+            inflHtml +
             '<div class="part-of-speech">' + (many ? opts.length + ' Latin words — choose the one that fits'
                                                    : 'In Latin') + '</div>' +
             '<ol class="english-options">' + items + '</ol>';
@@ -1011,7 +1021,7 @@
     function populateEnglishWheel() {
         wordWheel.innerHTML = '';
         const fragment = document.createDocumentFragment();
-        englishKeys.forEach(k => {
+        wheelKeys.forEach(k => {
             const li = document.createElement('li');
             li.textContent = k;
             li.dataset.key = k;
@@ -1437,6 +1447,9 @@
                 const numeric = k => /^[0-9]/.test(k) ? 1 : 0;
                 englishKeys = Object.keys(data.keys).sort((a, b) =>
                     (numeric(a) - numeric(b)) || a.localeCompare(b));
+                // `went`, `elected`, `men` are found by typing them, but listing every
+                // inflection would bury the words under their own forms.
+                wheelKeys = englishKeys.filter(k => !data.keys[k].every(o => o.x));
                 directionToggle.hidden = false;
                 directionToggle.querySelectorAll('button').forEach(b =>
                     b.addEventListener('click', () => { if (b.dataset.dir !== direction) setDirection(b.dataset.dir); }));

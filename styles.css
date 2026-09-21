@@ -549,3 +549,6 @@ body {
     border-color: var(--accent-color);
 }
 .form-chip.form-match .form-chip-latin { color: var(--accent-color); }
+
+/* "went" is the past of "go": what a generated form is, under the heading. */
+.english-inflection { font-size: 0.95em; color: #555; margin: -4px 0 10px; }
