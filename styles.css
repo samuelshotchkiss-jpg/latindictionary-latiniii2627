@@ -552,3 +552,9 @@ body {
 
 /* "went" is the past of "go": what a generated form is, under the heading. */
 .english-inflection { font-size: 0.95em; color: #555; margin: -4px 0 10px; }
+
+/* A generated paradigm cell: correct Latin she has not read, so it sits quieter than a
+   form with a citation behind it. */
+.form-chip.form-generated { background-color: transparent; border-style: dashed; }
+.form-chip.form-generated .form-chip-latin { font-weight: 600; color: #555; }
+.form-chip.form-generated .form-chip-label { color: #777; }

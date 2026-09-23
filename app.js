@@ -948,16 +948,24 @@
         const rest = strip.f.filter(f => !labelMatches(f[1], key));
         const chips = hits.concat(rest).map(f => {
             const [form, label, cite] = f;
+            // A cell with no citation is one the toolkit generated to fill out the basic
+            // paradigm -- correct Latin, but not a form she has read. It is drawn more
+            // quietly, and the summary says how many of the forms she HAS met.
             return '<li class="form-chip' + (labelMatches(label, key) ? ' form-match' : '') +
+                   (cite ? '' : ' form-generated') +
                    '"><span class="form-chip-latin">' + escapeHTML(form) +
                    '</span>' + (label ? ' <span class="form-chip-label">' + escapeHTML(label) +
                    '</span>' : '') + (cite ? ' <span class="form-chip-cite">' + escapeHTML(cite) +
                    '</span>' : '') + '</li>';
         }).join('');
+        const read = strip.f.filter(f => f[2]).length;
+        const summary = read === strip.f.length
+            ? 'Forms (' + read + ', all from your texts)'
+            : 'Forms (' + strip.f.length + ', ' + read + ' from your texts)';
         return '<details class="forms-strip"' + (formsClosed() ? '' : ' open') +
-               '><summary>Forms in your texts (' + strip.f.length +
-               ')</summary>' + (strip.c ? '<p class="forms-caption">' + escapeHTML(strip.c) +
-               '</p>' : '') + '<ul>' + chips + '</ul></details>';
+               '><summary>' + summary + '</summary>' +
+               (strip.c ? '<p class="forms-caption">' + escapeHTML(strip.c) + '</p>' : '') +
+               '<ul>' + chips + '</ul></details>';
     }
 
     function displayEnglishKey(key) {
