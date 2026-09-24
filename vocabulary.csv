@@ -35,6 +35,7 @@ an,or,94,Conjunction,,or,1
 "animus, animī, {m.}",mind; heart,40,Noun,,mind ‖ heart,1
 "annus, annī, {m.}",year,167,Noun,,year,1
 "annuus, annua, annuum","yearly, lasting a year",0,Adjective,,"yearly, lasting a year",1
+ante,before {(with accusative)},112,Preposition,,before {(with accusative)},1
 "antīquus, antīqua, antīquum",ancient,617,Adjective,,ancient,1
 "aperiō, aperīre, aperuī, apertum",to open,837,Verb,,to open,1
 "apertus, aperta, apertum",open,0,Adjective,,open,1
@@ -82,7 +83,7 @@ centum,hundred,730,Numeral,,hundred,1
 "cīvitās, cīvitātis, {f.}","state, citizenship",346,Noun,,"state, citizenship",1
 clam,secretly,0,Adverb,,secretly,1
 "clāmō, clāmāre, clāmāvī, clāmātum",to shout,0,Verb,,to shout,1
-"clārus, clāra, clārum",clear; bright,395,Adjective,,clear ‖ bright,1
+"clārus, clāra, clārum",clear; bright; famous,395,Adjective,,clear ‖ bright ‖ famous,1
 "classis, classis, {f.}",class {a division of the citizens by wealth},505,Noun,,class {a division of the citizens by wealth},1
 "claudō, claudere, clausī, clausum",to close,392,Verb,,to close,1
 "coetus, coetūs, {m.}",gathering,0,Noun,,gathering,1
