@@ -26,8 +26,7 @@ alacriter,eagerly,0,Adverb,,eagerly,1
 "aliquis, aliquid","someone, something",77,Pronoun,,"someone, something",1
 "alius, alia, aliud","another, other",37,Adjective,,"another, other",1
 "alter, altera, alterum",the other; a second,148,Adjective,,the other ‖ a second,1
-"amīca, amīcae, {f.}",friend,0,Noun,,friend,1
-"amīcus, amīca, amīcum",friendly; friend,198,Adjective,,friendly ‖ friend,1
+"amīcus, amīca, amīcum","friendly; friend {(as a noun, *amīcus* or *amīca*)}",198,Adjective,,"friendly ‖ friend {(as a noun, *amīcus* or *amīca*)}",1
 "amō, amāre, amāvī, amātum",to love,219,Verb,,to love,1
 "amor, amōris, {m.}",love,116,Noun,,love,1
 "āmoveō, āmovēre, āmōvī, āmōtum",to remove,0,Verb,,to remove,1
@@ -88,14 +87,14 @@ clam,secretly,0,Adverb,,secretly,1
 "claudō, claudere, clausī, clausum",to close,392,Verb,,to close,1
 "coetus, coetūs, {m.}",gathering,0,Noun,,gathering,1
 "Collātīnus, Collātīnī, {m.}","one of the two Roman leaders, husband of Lucrētia",0,Noun,,"one of the two Roman leaders, husband of Lucrētia",1
-"colō, colere, coluī, cultum",to cultivate,333,Verb,,to cultivate,1
+"colō, colere, coluī, cultum","to cultivate; to worship, honor {(of gods)}",333,Verb,,"to cultivate ‖ to worship, honor {(of gods)}",1
 "color, colōris, {m.}",color,725,Noun,,color,1
 "comitia, comitiōrum, {n. pl.}",assembly {(where Romans elected their magistrates)},0,Noun,,assembly {(where Romans elected their magistrates)},1
 "concēdō, concēdere, concessī, concessum",to yield; to grant,663,Verb,,to yield ‖ to grant,1
 "concordia, concordiae, {f.}","concord, harmony",0,Noun,,"concord, harmony",1
 "condō, condere, condidī, conditum","to put away; to found {(of a city, *urbem*)}",540,Verb,,"to put away ‖ to found {(of a city, *urbem*)}",1
 "coniūnx, coniugis, {m./f.}",spouse,218,Noun,,spouse,1
-"cōnsilium, cōnsiliī, {n.}",plan,217,Noun,,plan,1
+"cōnsilium, cōnsiliī, {n.}",plan; council {(a body of advisers)},217,Noun,,plan ‖ council {(a body of advisers)},1
 "cōnsul, cōnsulis, {m.}","consul {(one of the two chief officials of Rome, elected for one year)}",321,Noun,,"consul {(one of the two chief officials of Rome, elected for one year)}",1
 "cōnsūmō, cōnsūmere, cōnsūmpsī, cōnsūmptum","to use up; to burn up {(of fire, *ignēs*)}",869,Verb,,"to use up ‖ to burn up {(of fire, *ignēs*)}",1
 contrā,opposite; against,271,"Adverb, Preposition",,opposite ‖ against,1
@@ -132,7 +131,7 @@ deinde,then,150,Adverb,,then,1
 "dīcō, dīcere, dīxī, dictum",to say,33,Verb,,to say,1
 "dictātor, dictātōris, {m.}",dictator,0,Noun,,dictator,1
 "diēs, diēī, {m./f.}","day; [[*in diēs* ""into days"" → ""day by day""]]",54,Noun,,"day ‖ [[*in diēs* ""into days"" → ""day by day""]]",1
-"differō, differre, distulī, dīlātum",to be different,880,Verb,,to be different,1
+"differō, differre, distulī, dīlātum","to be different; to postpone, put off",880,Verb,,"to be different ‖ to postpone, put off",1
 "difficilis, difficile",difficult,861,Adjective,,difficult,1
 "dīmittō, dīmittere, dīmīsī, dīmissum",to send away,777,Verb,,to send away,1
 "discēdō, discēdere, discessī, discessum",to depart,726,Verb,,to depart,1
@@ -394,6 +393,7 @@ posteā,afterward,964,Adverb,,afterward,1
 "postulō, postulāre, postulāvī, postulātum",to demand,0,Verb,,to demand,1
 "potestās, potestātis, {f.}",power,737,Noun,,power,1
 prae,"ahead, in front",0,Preposition,,"ahead, in front",1
+"praeses, praesidis, {m./f.}",president,0,Noun,,president,1
 praetereā,besides,681,Adverb,,besides,1
 "precor, precārī, precātus sum",to pray,492,Verb,,to pray,1
 "prex, precis, {f.}",prayer,520,Noun,,prayer,1
@@ -404,6 +404,7 @@ prō,in front of; on behalf of,128,Preposition,,in front of ‖ on behalf of,1
 "prōlētārius, prōlētāriī, {m.}","proletarian {a citizen too poor to be rated for property, who gave the state only his offspring, *prōlēs*}",0,Noun,,"proletarian {a citizen too poor to be rated for property, who gave the state only his offspring, *prōlēs*}",1
 prope,near,189,Preposition,,near,1
 "prōpositum, prōpositī, {n.}",purpose,0,Noun,,purpose,1
+"prōvincia, prōvinciae, {f.}",province,620,Noun,,province,1
 "pūblicus, pūblica, pūblicum",public,517,Adjective,,public,1
 "pudīcitia, pudīcitiae, {f.}",chastity,0,Noun,,chastity,1
 "pudor, pudōris, {m.}",shame,616,Noun,,shame,1
@@ -544,6 +545,7 @@ vel,or,141,"Conjunction, Adverb",,or,1
 "verbum, verbī, {n.}",word,188,Noun,,word,1
 "vērus, vēra, vērum {(adv. vērō)}","true; {(adverb, *vērō*)} however",410,Adjective,,"true ‖ {(adverb, *vērō*)} however",1
 "vestīmentum, vestīmentī, {n.}",clothing,0,Noun,,clothing,1
+"vetō, vetāre, vetuī, vetitum",to forbid,665,Verb,,to forbid,1
 "Veturia, Veturiae, {f.}",Veturia {(the mother of Coriolanus)},0,Noun,,Veturia {(the mother of Coriolanus)},1
 "victor, victōris, {m.}",conqueror,340,"Noun, Adjective",,conqueror,1
 "videō, vidēre, vīdī, vīsum",to see,31,Verb,,to see,1
@@ -558,7 +560,7 @@ vel,or,141,"Conjunction, Adverb",,or,1
 vīvitur,"living is happening, I'm okay",0,Verb,,"living is happening, I'm okay",1
 "vīvō, vīvere, vīxī, vīctum",to live,156,Verb,,to live,1
 "ūllus, ūlla, ūllum",any,178,Adjective,,any,1
-ultimō,"finally, at last",432,Adjective,,"finally, at last",1
+ultimō,"finally, at last",432,Adverb,,"finally, at last",1
 "ūnus, ūna, ūnum",one,53,Adjective,,one,1
 "vocō, vocāre, vocāvī, vocātum","to call; to summon {(to trial, *ad iūdicium*)}",158,Verb,,"to call ‖ to summon {(to trial, *ad iūdicium*)}",1
 "Vōcula, Vōculae, {m.}","the Soft-Voiced, Cloelia's father's nickname",0,Noun,,"the Soft-Voiced, Cloelia's father's nickname",1
