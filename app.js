@@ -880,13 +880,14 @@
             suggestionsList.style.display = 'block';
             return;
         }
+        // THE ENGLISH ONLY, NO LATIN BESIDE IT (owner, 2026-09-24). The dropdown used to preview
+        // the first three Latin words, and a student in a hurry could copy `praeses` for "vice
+        // president" straight out of it without ever opening the page that says *quī in locō
+        // praesidis est* -- the guidance, the forms and the contrasts all live on that page.
+        // So the list names the English she can open, and nothing she could copy instead.
         hits.slice(0, 10).forEach(h => {
             const div = document.createElement('div');
-            const opts = english.keys[h.key];
-            const preview = opts.slice(0, 3).map(o => o.h.split(',')[0]).join(' · ') +
-                            (opts.length > 3 ? ' …' : '');
-            div.innerHTML = '<span class="english-key">' + escapeHTML(h.key) + '</span>' +
-                            ' <span class="english-preview">' + escapeHTML(preview) + '</span>';
+            div.innerHTML = '<span class="english-key">' + escapeHTML(h.key) + '</span>';
             div.addEventListener('mousedown', () => displayEnglishKey(h.key));
             suggestionsList.appendChild(div);
         });
