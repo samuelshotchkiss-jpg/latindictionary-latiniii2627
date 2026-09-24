@@ -970,10 +970,13 @@
 
     function displayEnglishKey(key) {
         const opts = english && english.keys[key];
-        if (!opts) return;
+        // A NOTE IS SAID TO THE KEY, NOT TO A WORD: `of` answers "of what?" and steers her to
+        // the genitive before any option (owner, 2026-09-23). *Asterisks* mark Latin.
+        const note = english && english.notes && english.notes[key];
+        if (!opts && !note) return;
         lastEnglishKey = key;
-        const many = opts.length > 1;
-        const items = opts.map((o, i) => {
+        const many = (opts || []).length > 1;
+        const items = (opts || []).map((o, i) => {
             const pos = o.i ? 'Idiom' : o.p;
             // ONE OPTION: there is nothing to choose between, so show the WHOLE word with the
             // meaning she searched for highlighted (owner, 2026-09-21). SEVERAL: show only the
@@ -988,15 +991,24 @@
                 '">' + formatHeadwordHTML(escapeHTML(o.h)) + '</button>' +
                 (pos ? ' <span class="option-pos">' + escapeHTML(pos) + '</span>' : '') + '</div>' +
                 meaning +
-                // Guidance is the "which one?" answer, so it is shown only when there IS a choice.
-                (many && o.u ? '<div class="option-guidance">' + escapeHTML(o.u) + '</div>' : '') +
+                // Guidance is the "which one?" answer when there IS a choice. On a lone option
+                // it is shown only when a ruling wrote it for THIS key -- `head of state` lands
+                // on caput, and the line is where she finds *caput reī pūblicae* (owner,
+                // 2026-09-23). A generated inflection (`x`) only inherits its base word's
+                // line, which says nothing new, so it stays quiet.
+                ((many || !o.x) && o.u ? '<div class="option-guidance">' +
+                    escapeHTML(o.u).replace(/\*([^*]+)\*/g, '<em>$1</em>') + '</div>' : '') +
                 tagHTML(o.t) +
                 (o.i ? '' : formsStripHTML(o.go, key)) +
                 '</li>';
         }).join('');
         // A GENERATED FORM SAYS WHAT IT IS: "went — the past of go". The student learns where
         // the word she typed sits, and the forms strip below lifts the Latin that matches it.
-        const kinds = Array.from(new Set(opts.filter(o => o.x).map(o => o.x)));
+        const kinds = Array.from(new Set((opts || []).filter(o => o.x).map(o => o.x)));
+        const noteHtml = note
+            ? '<div class="english-note">' +
+              escapeHTML(note).replace(/\*([^*]+)\*/g, '<em>$1</em>') + '</div>'
+            : '';
         const inflHtml = kinds.length
             ? '<div class="english-inflection">“' + escapeHTML(key) + '” is the ' +
               kinds.map(x => escapeHTML(x).replace(/ of (.+)$/, ' of “$1”')).join(', or the ') +
@@ -1004,10 +1016,10 @@
             : '';
         resultDisplay.innerHTML =
             '<div class="result-header"><h2 class="english-heading">' + escapeHTML(key) + '</h2></div>' +
-            inflHtml +
-            '<div class="part-of-speech">' + (many ? opts.length + ' Latin words — choose the one that fits'
-                                                   : 'In Latin') + '</div>' +
-            '<ol class="english-options">' + items + '</ol>';
+            inflHtml + noteHtml +
+            (items ? '<div class="part-of-speech">' + (many ? opts.length + ' Latin words — choose the one that fits'
+                                                             : 'In Latin') + '</div>' +
+                     '<ol class="english-options">' + items + '</ol>' : '');
         resultDisplay.querySelectorAll('.option-latin').forEach(btn => {
             btn.addEventListener('click', () => {
                 const o = opts[Number(btn.dataset.i)];

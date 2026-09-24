@@ -552,6 +552,14 @@ body {
 
 /* "went" is the past of "go": what a generated form is, under the heading. */
 .english-inflection { font-size: 0.95em; color: #555; margin: -4px 0 10px; }
+/* A note said to the English key itself (`of`: use the genitive), above any option. */
+.english-note {
+    margin: 0 0 12px;
+    padding: 8px 12px;
+    background-color: var(--accent-secondary);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 6px;
+}
 
 /* A generated paradigm cell: correct Latin she has not read, so it sits quieter than a
    form with a citation behind it. */
