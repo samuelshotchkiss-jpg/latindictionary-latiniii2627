@@ -115,7 +115,7 @@ babae,Wow!,0,Interjection,,Wow!,1
 "carcer, carceris, {m.}",prison,0,Noun,,prison,1
 "carmen, carminis, {n.}",song; {(in the plural)} music; poem,254,Noun,,song ‖ {(in the plural)} music ‖ poem,1
 "Carthāginiēnsis, Carthāginiēnse",Carthaginian,0,Adjective,,Carthaginian,1
-"Carthāgō, Carthāginis, {f.}",Carthago,0,Noun,,Carthago,1
+"Carthāgō, Carthāginis, {f.}",Carthage {(a city in North Africa)},0,Noun,,Carthage {(a city in North Africa)},1
 "castellum, castellī, {n.}",fort,0,Noun,,fort,1
 "castra, castrōrum, {n. pl.}",military camp,0,Noun,,military camp,1
 "causa, causae, {f.}",cause,107,Noun,,cause,1
@@ -475,7 +475,7 @@ libenter,gladly,0,Adverb,,gladly,1
 "līberī, līberōrum, {m. pl.}",children,0,Noun,,children,1
 "līberō, līberāre, līberāvī, līberātum",to free,0,Verb,,to free,1
 "lībertās, lībertātis, {f.}",freedom,495,Noun,,freedom,1
-"libet, libēre, libuit",it pleases {old spelling lubet},729,Verb,,it pleases {old spelling lubet},1
+"libet, libēre, libuit","it pleases {(old spelling with u, as in *lubēbit*)}",729,Verb,,"it pleases {(old spelling with u, as in *lubēbit*)}",1
 "licentia, licentiae, {f.}","license, lack of restraint",0,Noun,,"license, lack of restraint",1
 "licet, licēre, licuit",it is permitted,175,"Verb, Conjunction",,it is permitted,1
 "ligō, ligāre, ligāvī, ligātum","to bind, tie",0,Verb,,"to bind, tie",1
