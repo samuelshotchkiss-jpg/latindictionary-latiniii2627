@@ -24,7 +24,7 @@ adversus,against,460,Preposition,,against,1
 "adversus, adversa, adversum","unfavorable, opposing",0,Adjective,,"unfavorable, opposing",1
 "adulēscēns, adulēscentis, {m.}",young man,0,Noun,,young man,1
 "aedificō, aedificāre, aedificāvī, aedificātus",to build,0,Verb,,to build,1
-"aeger, aegra, aegrum",sick,810,Adjective,,sick,1
+"aeger, aegra, aegrum","sick; {(adverb, *aegrē*)} with resentment",810,Adjective,,"sick ‖ {(adverb, *aegrē*)} with resentment",1
 "Aemilius, Aemiliī, {m.}",Aemilius {a Roman family name},0,Noun,,Aemilius {a Roman family name},1
 "āēr, āeris, {m.}",air,845,Noun,,air,1
 "aerārium, aerāriī, {n.}",treasury,0,Noun,,treasury,1
@@ -152,7 +152,7 @@ clam,secretly,0,Adverb,,secretly,1
 "colō, colere, coluī, cultum","to cultivate; to worship, honor {(of gods)}",333,Verb,,"to cultivate ‖ to worship, honor {(of gods)}",1
 "color, colōris, {m.}",color,725,Noun,,color,1
 "comitia, comitiōrum, {n. pl.}",assembly {(where Romans elected their magistrates)},0,Noun,,assembly {(where Romans elected their magistrates)},1
-"committō, committere, commīsī, commissum",to bring together,608,Verb,,to bring together,1
+"committō, committere, commīsī, commissum","to bring together; to begin {(a battle, *proelium*)}",608,Verb,,"to bring together ‖ to begin {(a battle, *proelium*)}",1
 "complector, complectī, complexus sum",to embrace,0,Verb,,to embrace,1
 "comprehendō, comprehendere, comprehendī, comprēnsum",to grasp,0,Verb,,to grasp,1
 "concēdō, concēdere, concessī, concessum",to yield; to grant,663,Verb,,to yield ‖ to grant,1
@@ -167,7 +167,7 @@ clam,secretly,0,Adverb,,secretly,1
 "coniūnx, coniugis, {m./f.}",spouse,218,Noun,,spouse,1
 "cōnor, cōnārī, cōnātus sum",to try,905,Verb,,to try,1
 "cōnsilium, cōnsiliī, {n.}",plan; council {(a body of advisers)}; advice {(with *dare*)},217,Noun,,plan ‖ council {(a body of advisers)} ‖ advice {(with *dare*)},1
-"cōnsistō, cōnsistere, cōnstitī",to stand together,780,Verb,,to stand together,1
+"cōnsistō, cōnsistere, cōnstitī","to stand together; to halt, settle",780,Verb,,"to stand together ‖ to halt, settle",1
 "cōnstō, cōnstāre, cōnstitī",to stand firm; {+ abl. of price} to cost,731,Verb,,to stand firm; {+ abl. of price} to cost,1
 "cōnsul, cōnsulis, {m.}","consul {(one of the two chief officials of Rome, elected for one year)}",321,Noun,,"consul {(one of the two chief officials of Rome, elected for one year)}",1
 "cōnsūmō, cōnsūmere, cōnsūmpsī, cōnsūmptum","to use up; to burn up {(of fire, *ignēs*)}",869,Verb,,"to use up ‖ to burn up {(of fire, *ignēs*)}",1
@@ -283,7 +283,7 @@ enim,"you see, and here's why",57,Conjunction,,"you see, and here's why",1
 "equitātus, equitātūs, {m.}",cavalry,0,Noun,,cavalry,1
 "equus, equī, {m.}",horse,248,Noun,,horse,1
 ergō,therefore,134,Conjunction,,therefore,1
-"errō, errāre, errāvī, errātum",to wander,402,Verb,,to wander,1
+"errō, errāre, errāvī, errātum",to wander; to be mistaken,402,Verb,,to wander ‖ to be mistaken,1
 "ērudiō, ērudīre, ērudīvī, ērudītum",to teach,0,Verb,,to teach,1
 et,"and; both {(introducing the first of two paired items, correlative *et* … *et*)}",1,Conjunction,,"and ‖ both {(introducing the first of two paired items, correlative *et* … *et*)}",1
 etenim,for indeed,0,Conjunction,,for indeed,1
@@ -310,7 +310,7 @@ extrā,outside,0,Preposition,,outside,1
 "faciō, facere, fēcī, factum",to make; to do,32,Verb,,to make ‖ to do,1
 "fallō, fallere, fefellī, falsum",to deceive,503,Verb,,to deceive,1
 "falsus, falsa, falsum","false, fake",633,Adjective,,"false, fake",1
-"fāma, fāmae, {f.}",rumor,278,Noun,,rumor,1
+"fāma, fāmae, {f.}",rumor; fame,278,Noun,,rumor ‖ fame,1
 "famēs, famis, {f.}","hunger, famine",828,Noun,,"hunger, famine",1
 "familia, familiae, {f.}",family,943,Noun,,family,1
 "fēmina, fēminae, {f.}",woman,501,Noun,,woman,1
@@ -319,7 +319,7 @@ extrā,outside,0,Preposition,,outside,1
 "fidēs, fideī, {f.}",faith(fulness); trust,184,Noun,,faith(fulness) ‖ trust,1
 "fīlia, fīliae, {f.}",daughter,909,Noun,,daughter,1
 "fīlius, fīliī, {m.}",son,909,Noun,,son,1
-"fīniō, fīnīre, fīnīvī / fīniī, fīnītum",to limit,0,Verb,,to limit,1
+"fīniō, fīnīre, fīnīvī / fīniī, fīnītum",to limit; to end,0,Verb,,to limit ‖ to end,1
 "fīnis, fīnis, {m.}",end,236,Noun,,end,1
 "fīō, fierī, factus sum",to be made; to happen; to become,146,Verb,,to be made ‖ to happen ‖ to become,1
 "flamma, flammae, {f.}",flame,298,Noun,,flame,1
@@ -328,7 +328,7 @@ extrā,outside,0,Preposition,,outside,1
 "flōs, flōris, {m.}",flower,818,Noun,,flower,1
 "flūmen, flūminis, {n.}",river,283,Noun,,river,1
 "foedus, foederis, {n.}",treaty,922,Noun,,treaty,1
-"fōrma, fōrmae, {f.}",shape,422,Noun,,shape,1
+"fōrma, fōrmae, {f.}",shape; beauty,422,Noun,,shape ‖ beauty,1
 fortasse,"maybe, perhaps",833,Adverb,,"maybe, perhaps",1
 "fortis, forte",brave; strong,286,Adjective,,brave ‖ strong,1
 fortiter,bravely,0,Adverb,,bravely,1
@@ -346,7 +346,7 @@ fortiter,bravely,0,Adverb,,bravely,1
 "Gallia, Galliae, {f.}",Gaul,0,Noun,,Gaul,1
 "gaudium, gaudiī, {n.}",joy,727,Noun,,joy,1
 "gemma, gemmae, {f.}","jewel, gem",0,Noun,,"jewel, gem",1
-"genus, generis, {n.}","kind, type",170,Noun,,"kind, type",1
+"genus, generis, {n.}","kind, type; birth, family",170,Noun,,"kind, type ‖ birth, family",1
 "gerō, gerere, gessī, gestum","to carry; to wear {(of clothing, *vestīmenta*)}; to wage {(of war, *bellum*)}; to accomplish {(of deeds, *rēs*)}",237,Verb,,"to carry ‖ to wear {(of clothing, *vestīmenta*)} ‖ to wage {(of war, *bellum*)} ‖ to accomplish {(of deeds, *rēs*)}",1
 "gladiātor, gladiātōris, {m.}",gladiator,0,Noun,,gladiator,1
 "gladius, gladiī, {m.}",sword,862,Noun,,sword,1
@@ -361,7 +361,7 @@ grātuītō,free of charge,0,Adjective,,free of charge,1
 "habitō, habitāre, habitāvī, habitātum",to live,0,Verb,,to live,1
 "Hamilcar, Hamilcaris, {m.}","Hamilcar {Carthaginian general, father of Hannibal}",0,Noun,,"Hamilcar {Carthaginian general, father of Hannibal}",1
 "Hannibal, Hannibalis, {m.}",Hannibal {Carthaginian general in the Second Punic War},0,Noun,,Hannibal {Carthaginian general in the Second Punic War},1
-"harēna, harēnae, {f.}",sand,0,Noun,,sand,1
+"harēna, harēnae, {f.}",sand; arena,0,Noun,,sand ‖ arena,1
 "Hasdrubal, Hasdrubalis, {m.}","Hasdrubal {Carthaginian general, brother of Hannibal}",0,Noun,,"Hasdrubal {Carthaginian general, brother of Hannibal}",1
 haud,"hardly, not at all",226,Adverb,,"hardly, not at all",1
 "hērēs, hērēdis, {m./f.}",heir,0,Noun,,heir,1
@@ -377,13 +377,13 @@ hodiē,today,981,Adverb,,today,1
 "homō, hominis, {m.}",person,88,Noun,,person,1
 "honor, honōris, {m.}",honor,290,Noun,,honor,1
 "Horātius, Horātiī, {m.}",a Roman hero,0,Noun,,a Roman hero,1
-"horreō, horrēre, horruī",to bristle,0,Verb,,to bristle,1
+"horreō, horrēre, horruī",to bristle; to dread,0,Verb,,to bristle ‖ to dread,1
 "hortor, hortārī, hortātus sum",to urge,887,Verb,,to urge,1
 "hostis, hostis, {m./f.}",enemy,93,Noun,,enemy,1
 "hūmānus, hūmāna, hūmānum",human (as an adjective),355,Adjective,,human (as an adjective),1
 "humus, humī, {f.}","earth, ground",740,Noun,,"earth, ground",1
 "iaciō, iacere, iēcī, iactum",to throw,899,Verb,,to throw,1
-"iactō, iactāre, iactāvī, iactātum",to toss about,0,Verb,,to toss about,1
+"iactō, iactāre, iactāvī, iactātum",to toss about; to show off,0,Verb,,to toss about ‖ to show off,1
 iam,now; already,34,Adverb,,now ‖ already,1
 ibi,there,619,Adverb,,there,1
 "īdem, eadem, idem",the same,59,"Adjective, Pronoun",,the same,1
@@ -411,7 +411,7 @@ inde,from there,328,Adverb,,from there,1
 "īnferō, īnferre, intulī, illātum",to bring in,742,Verb,,to bring in,1
 "īnferī, īnferōrum, {m. pl.}",the Underworld,428,Adjective,,the Underworld,1
 īnfrā,below,0,Preposition,,below,1
-"ingenium, ingeniī, {n.}",disposition,387,Noun,,disposition,1
+"ingenium, ingeniī, {n.}",disposition; talent,387,Noun,,disposition ‖ talent,1
 "ingēns, {(gen.)} ingentis",huge,202,Adjective,,huge,1
 "inimīcitia, inimīcitiae, {f.}","enmity, feud",0,Noun,,"enmity, feud",1
 "inimīcus, inimīca, inimīcum",hostile,952,Adjective,,hostile,1
@@ -424,7 +424,7 @@ inde,from there,328,Adverb,,from there,1
 "īnsepultus, īnsepulta, īnsepultum",unburied,0,Adjective,,unburied,1
 "īnsomnia, īnsomniae, {f.}",sleeplessness,0,Noun,,sleeplessness,1
 "īnstituō, īnstituere, īnstituī, īnstitūtum","to set up, establish",931,Verb,,"to set up, establish",1
-"īnstruō, īnstruere, īnstrūxī, īnstrūctum",to build up,0,Verb,,to build up,1
+"īnstruō, īnstruere, īnstrūxī, īnstrūctum","to build up; to draw up {(of troops, *cōpiās*)}",0,Verb,,"to build up ‖ to draw up {(of troops, *cōpiās*)}",1
 "īnsula, īnsulae, {f.}",island; apartment complex,908,Noun,,island ‖ apartment complex,1
 "intellegō, intellegere, intellēxī, intellēctum",understand (intelligent),512,Verb,,understand (intelligent),1
 inter,"between, among",64,Preposition,,"between, among",1
@@ -480,7 +480,7 @@ libenter,gladly,0,Adverb,,gladly,1
 "licet, licēre, licuit",it is permitted,175,"Verb, Conjunction",,it is permitted,1
 "ligō, ligāre, ligāvī, ligātum","to bind, tie",0,Verb,,"to bind, tie",1
 "lingua, linguae, {f.}",tongue; language,732,Noun,,tongue ‖ language,1
-"littera, litterae, {f.}",letter of the alphabet,710,Noun,,letter of the alphabet,1
+"littera, litterae, {f.}",letter of the alphabet; {(in the plural)} literature,710,Noun,,letter of the alphabet ‖ {(in the plural)} literature,1
 "lītus, lītoris, {n.}",shore,245,Noun,,shore,1
 "locus, locī, {m.} {(n. pl.} loca{)}",place,62,Noun,,place,1
 "longus, longa, longum",long,142,Adjective,,long,1
@@ -528,7 +528,7 @@ minimē,"no, not at all; {(of a son, accusative *minimum*, agreeing with *fīliu
 "miserābilis, miserābile",pitiable,0,Adjective,,pitiable,1
 "mittō, mittere, mīsī, missum",to send,114,Verb,,to send,1
 "moderātiō, moderātiōnis, {f.}",self-control,0,Noun,,self-control,1
-"modus, modī, {m.}",measure,195,Noun,,measure,1
+"modus, modī, {m.}","measure; way, manner",195,Noun,,"measure ‖ way, manner",1
 "moenia, moenium, {n. pl.}",city walls,593,Noun,,city walls,1
 "molestia, molestiae, {f.}","trouble, distress",0,Noun,,"trouble, distress",1
 "molliō, mollīre, mollīvī, mollītum",to soften,0,Verb,,to soften,1
@@ -587,6 +587,7 @@ novem,nine,0,Numeral,,nine,1
 "nūdus, nūda, nūdum",naked,545,Adjective,,naked,1
 "nūllus, nūlla, nūllum",no; no one,49,Adjective,,no ‖ no one,1
 "numerō, numerāre, numerāvī, numerātum",to count,0,Verb,,to count,1
+"numerus, numerī, {m.}",number,338,Noun,,number,1
 numquam,never,251,Adverb,,never,1
 nunc,now,50,Adverb,,now,1
 "nūntius, nūntiī, {m.}",messenger; message,919,Noun,,messenger ‖ message,1
@@ -619,7 +620,7 @@ omnīnō,entirely,0,Adverb,,entirely,1
 "optiō, optiōnis, {f.}",choice,0,Noun,,choice,1
 "opulentus, opulenta, opulentum",wealthy,0,Adjective,,wealthy,1
 "opus, operis, {n.}",work,332,Noun,,work,1
-"ōrdō, ōrdinis, {m.}",row,416,Noun,,row,1
+"ōrdō, ōrdinis, {m.}",class {(of society)},416,Noun,,class {(of society)},1
 "ōrnāmentum, ōrnāmentī, {n.}","ornament, jewel",0,Noun,,"ornament, jewel",1
 "ōrnātus, ōrnāta, ōrnātum","adorned, endowed {with}",0,Adjective,,"adorned, endowed {with}",1
 "ōsculum, ōsculī, {n.}",kiss,0,Noun,,kiss,1
@@ -753,7 +754,7 @@ quia,because,132,Conjunction,,because,1
 "quīcumque, quaecumque, quodcumque","whoever, whatever",284,Pronoun,,"whoever, whatever",1
 quidem,indeed,136,Adverb,,indeed,1
 "quiēs, quiētis, {f.}",rest,0,Noun,,rest,1
-quīn,why not,456,"Adverb, Conjunction",,why not,1
+quīn,"why not; but that, from {(after a verb of hindering)}",456,"Adverb, Conjunction",,"why not ‖ but that, from {(after a verb of hindering)}",1
 quīndecim,fifteen,0,Numeral,,fifteen,1
 quīnquāgintā,fifty,0,Numeral,,fifty,1
 "quīntus, quīnta, quīntum",fifth; Quintus {(a Roman praenomen)},0,Adjective,,fifth ‖ Quintus {(a Roman praenomen)},1
@@ -777,7 +778,7 @@ quoque,also,76,Adverb,,also,1
 "rēpō, rēpere, rēpsī, rēptum",to crawl,0,Verb,,to crawl,1
 "reprehendō, reprehendere, reprehendī, reprehēnsum",to rebuke,0,Verb,,to rebuke,1
 "rēs, reī, {f.}",thing,38,Noun,,thing,1
-"resistō, resistere, restitī",to halt,0,Verb,,to halt,1
+"resistō, resistere, restitī",to halt; to resist,0,Verb,,to halt ‖ to resist,1
 "respondeō, respondēre, respondī, respōnsum",to answer,535,Verb,,to answer,1
 "rēs pūblica, reī pūblicae, {f.}","""the public thing"" → ""the government""",517,Noun,,"""the public thing"" → ""the government""",1
 "restō, restāre, restitī",to remain,0,Verb,,to remain,1
@@ -793,7 +794,7 @@ quoque,also,76,Adverb,,also,1
 "rumpō, rumpere, rūpī, ruptum",to break,480,Verb,,to break,1
 rūrsus,back; again,440,Adverb,,back ‖ again,1
 "sacer, sacra, sacrum",sacred,398,Adjective,,sacred,1
-"saeculum, saeculī, {n.}",generation,776,Noun,,generation,1
+"saeculum, saeculī, {n.}",generation; century,776,Noun,,generation ‖ century,1
 "saevus, saeva, saevum",fierce,244,Adjective,,fierce,1
 "Saguntīnus, Saguntīna, Saguntīnum",of Saguntum; pl. the people of Saguntum,0,Adjective,,of Saguntum; pl. the people of Saguntum,1
 "Saguntum, Saguntī, {n.}",Saguntum {a town in Spain},0,Noun,,Saguntum {a town in Spain},1
@@ -817,7 +818,7 @@ sēcrētō,in secret,0,Adverb,,in secret,1
 sed,but,20,Conjunction,,but,1
 sēdecim,sixteen,0,Numeral,,sixteen,1
 "sedeō, sedēre, sēdī, sessum",to sit,506,Verb,,to sit,1
-"sēdēs, sēdis, {f.}",seat,403,Noun,,seat,1
+"sēdēs, sēdis, {f.}",seat; home,403,Noun,,seat ‖ home,1
 "sēdō, sēdāre, sēdāvī, sēdātum","to calm, settle",0,Verb,,"to calm, settle",1
 "sella, sellae, {f.}",chair,0,Noun,,chair,1
 semel,once,789,Adverb,,once,1
@@ -848,7 +849,7 @@ sine,without,104,Preposition,,without,1
 "sinō, sinere, sīvī, situm",to allow,717,Verb,,to allow,1
 "situs, sita, situm","situated, located",0,Adjective,,"situated, located",1
 "socer, socerī, {m.}",father-in-law,0,Noun,,father-in-law,1
-"socius, sociī, {m.}",companion,372,Noun,,companion,1
+"socius, sociī, {m.}",companion; ally,372,Noun,,companion ‖ ally,1
 "sōl, sōlis, {m.}",sun,320,Noun,,sun,1
 "soleō, solēre, solitus sum",to be accustomed to,246,Verb,,to be accustomed to,1
 "sollicitūdō, sollicitūdinis, {f.}",anxiety,0,Noun,,anxiety,1
@@ -873,7 +874,7 @@ subitō,suddenly,848,Adverb,,suddenly,1
 "sūmō, sūmere, sūmpsī, sūmptum",pick up,454,Verb,,pick up,1
 "superbia, superbiae, {f.}",arrogance,0,Noun,,arrogance,1
 "superbus, superba, superbum",proud,656,Adjective,,proud,1
-"superō, superāre, superāvī, superātum",to overcome,668,Verb,,to overcome,1
+"superō, superāre, superāvī, superātum",to overcome; to surpass,668,Verb,,to overcome ‖ to surpass,1
 "superus, supera, superum",upper,0,Adjective,,upper,1
 "supplex, {(gen.)} supplicis",suppliant,0,Adjective,,suppliant,1
 "supplicium, suppliciī, {n.}",punishment {(= *poena*)},683,Noun,,punishment {(= *poena*)},1
