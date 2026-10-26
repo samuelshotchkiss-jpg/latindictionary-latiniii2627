@@ -1194,11 +1194,15 @@
             if (a.isForm !== b.isForm) {
                 return a.isForm ? 1 : -1;
             }
-            // Rule C: Highest Dictionary Frequency wins
-            const freqA = a.word.frequency !== null ? a.word.frequency : -1;
-            const freqB = b.word.frequency !== null ? b.word.frequency : -1;
-            if (freqA !== freqB) {
-                return freqB - freqA; 
+            // Rule C: the commoner word wins. THIS APP'S FREQUENCY COLUMN IS THE DCC RANK (see
+            // displayWordDetails), so it sorts the OTHER way from the ece sibling's corpus
+            // count: #1 is the commonest word in Latin, a LOWER rank comes first, and 0 -- not on
+            // the list -- comes after every ranked word. Sorting it as a count (2026-10-26) put the
+            // rarest words on top and pushed `sum` (#1) out of the ten results for "sum".
+            const rankA = a.word.frequency > 0 ? a.word.frequency : Infinity;
+            const rankB = b.word.frequency > 0 ? b.word.frequency : Infinity;
+            if (rankA !== rankB) {
+                return rankA - rankB;
             }
             // Rule D: Alphabetical Tie-Breaker
             const keyA = normalizeForSearch(a.displayStr.replace(/\{.*?\}/g, ''));
