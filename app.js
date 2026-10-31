@@ -28,6 +28,11 @@
     const directionToggle = document.getElementById('direction-toggle');
     const wordWheelTitle = document.getElementById('word-wheel-title');
     const wheelLegend = document.getElementById('wheel-legend');
+    const leftBtn = document.getElementById('left-btn');
+    const leftModal = document.getElementById('left-modal');
+    const leftBody = document.getElementById('left-body');
+    const closeLeftModal = document.getElementById('close-left-modal');
+    const closeLeftBtn = document.getElementById('close-left-btn');
 
     // --- Global State Variables ---
     let vocabulary = new Array(); // Holds standard dictionary lemmata
@@ -1397,6 +1402,7 @@
             populateWordWheel();
             updateWordWheelStyles();
             loadEnglish();
+            loadDeparted();
         })
         .catch(error => {
             console.error('Error fetching dictionaries:', error);
@@ -1487,6 +1493,80 @@
                 }, true);
             })
             .catch(err => console.info('[english] English side not available: ' + err.message));
+    }
+
+    // --- The words that have left the list (departed.json, written by the toolkit's
+    // `cycles.py left --json`) ---
+    // The class's vocabulary list holds about 100 words; when a Trial's new words arrive, the
+    // oldest leave. A student who keeps their own flashcards needs to know which ones, so this is
+    // that record, Trial by Trial, newest first. OPTIONAL like the English side: no file, no
+    // link. An EMPTY record still shows the link, because "nothing has left yet" is an answer.
+    // A link ending in #left opens it directly, so the teacher can post one address.
+    function loadDeparted() {
+        fetch('departed.json')
+            .then(r => { if (!r.ok) throw new Error('no departed.json'); return r.json(); })
+            .then(data => {
+                if (!data || !Array.isArray(data.trials)) return;
+                leftBody.innerHTML = departedHTML(data);
+                leftBtn.hidden = false;
+                leftBtn.addEventListener('click', showLeftModal);
+                closeLeftModal.addEventListener('click', hideLeftModal);
+                closeLeftBtn.addEventListener('click', hideLeftModal);
+                leftModal.addEventListener('click', (e) => { if (e.target === leftModal) hideLeftModal(); });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && leftModal.style.display === 'flex') hideLeftModal();
+                });
+                // A word opens its entry, as it would from the word list.
+                leftBody.addEventListener('click', (e) => {
+                    const b = e.target.closest('.left-word');
+                    if (!b) return;
+                    const word = vocabulary.find(v => v.latin === b.dataset.word);
+                    if (!word) return;
+                    hideLeftModal();
+                    if (direction !== 'la') setDirection('la', true);
+                    displayWordDetails(word);
+                    updateWordWheelSelection(word.latin);
+                });
+                if (location.hash === '#left') showLeftModal();
+                window.addEventListener('hashchange', () => { if (location.hash === '#left') showLeftModal(); });
+            })
+            .catch(err => console.info('[departed] record not available: ' + err.message));
+    }
+
+    function departedHTML(data) {
+        const ceiling = data.ceiling || 100;
+        let h = `<p>The vocabulary list holds about ${ceiling} words. When a new Trial's words ` +
+                `arrive, the oldest words leave the list, and they are not on that Trial or any ` +
+                `Trial after it.</p>`;
+        if (!data.trials.length) {
+            return h + `<p>No word has left the list yet. It holds ${data.on_list} words now.</p>`;
+        }
+        h += `<p>Most recent first. Each word opens its entry in the dictionary.</p>`;
+        for (const t of data.trials.slice().reverse()) {
+            h += `<h3>Before Trial ${t.trial}` +
+                 (t.title ? ` <span class="left-title">(${escapeHTML(t.title)})</span>` : '') +
+                 `</h3><ul class="left-list">`;
+            for (const w of t.words) {
+                const entry = vocabulary.find(v => v.latin === w.headword);
+                const latin = entry
+                    ? `<button type="button" class="left-word" data-word="${escapeHTML(w.headword)}">` +
+                      `${formatHeadwordHTML(escapeHTML(w.headword))}</button>`
+                    : `<span class="left-latin">${escapeHTML(w.latin)}</span>`;
+                const gloss = entry ? formatDefinitionHTML(entry.definition) : escapeHTML(w.english);
+                const back = w.back
+                    ? ` <span class="left-back">back on the list from Trial ${w.back}</span>` : '';
+                h += `<li>${latin} — ${gloss}${back}</li>`;
+            }
+            h += `</ul>`;
+        }
+        return h;
+    }
+
+    function showLeftModal() { leftModal.style.display = 'flex'; }
+
+    function hideLeftModal() {
+        leftModal.style.display = 'none';
+        if (location.hash === '#left') history.replaceState(null, '', location.pathname + location.search);
     }
 
     document.addEventListener('DOMContentLoaded', initialize);

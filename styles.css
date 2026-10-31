@@ -204,6 +204,16 @@ body {
 .about-body ul { padding-left: 22px; margin: 10px 0; }
 .about-body li { margin-bottom: 8px; }
 
+/* The words that have left the list (departed.json). A word is a button that opens its entry,
+   styled as the Latin it is rather than as a control. */
+.left-list { list-style: none; padding-left: 0 !important; }
+.left-word { background: none; border: none; padding: 0; font: inherit; font-weight: bold; color: var(--accent-color); cursor: pointer; text-align: left; }
+.left-word:hover { text-decoration: underline; }
+.left-word:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; border-radius: 4px; }
+.left-latin { font-weight: bold; }
+.left-title { font-weight: normal; color: #777; font-size: 0.9em; }
+.left-back { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 10px; font-size: 0.8em; background-color: #e8f6ee; color: var(--study-list-color); }
+
 #study-list-ul { list-style: none; padding: 0; }
 #study-list-ul li { display: flex; justify-content: space-between; align-items: flex-start; padding: 15px 10px; border-bottom: 1px solid var(--primary-bg); }
 .study-list-item-content { display: flex; flex-direction: column; margin-right: 15px; flex-grow: 1; }

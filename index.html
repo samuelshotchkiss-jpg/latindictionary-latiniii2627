@@ -42,6 +42,8 @@
             </div>
 
             <footer id="site-footer">
+                <!-- Hidden until departed.json has loaded, like the direction toggle. -->
+                <button id="left-btn" class="footer-link" hidden>Words that have left the list</button>
                 <button id="about-btn" class="footer-link">About &amp; Acknowledgements</button>
             </footer>
         </main>
@@ -79,6 +81,19 @@
                 <input type="file" id="import-file-input" accept=".tsv,.txt" style="display: none;">
                 <button id="copy-list-btn" class="btn btn-primary">Copy to Clipboard</button>
                 <button id="download-list-btn" class="btn btn-primary">Download as TSV</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="left-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Words That Have Left the List</h2>
+                <button class="modal-close" id="close-left-modal">&times;</button>
+            </div>
+            <div class="modal-body about-body" id="left-body"></div>
+            <div class="modal-footer">
+                <button id="close-left-btn" class="btn btn-primary">Close</button>
             </div>
         </div>
     </div>

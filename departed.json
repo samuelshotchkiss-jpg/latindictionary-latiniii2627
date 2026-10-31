@@ -1,0 +1,8 @@
+{
+ "format": "latin-vocab-departures",
+ "version": 1,
+ "corpus": "latin-iii",
+ "ceiling": 100,
+ "on_list": 95,
+ "trials": []
+}
