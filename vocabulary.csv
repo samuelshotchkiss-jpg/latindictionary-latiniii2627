@@ -44,7 +44,7 @@ alacriter,eagerly,0,Adverb,,eagerly,1
 "alius, alia, aliud","another, other",37,Adjective,,"another, other",1
 "Alpēs, Alpium, {f. pl.}",the Alps,0,Noun,,the Alps,1
 "alter, altera, alterum",the other; a second,148,Adjective,,the other ‖ a second,1
-"altus, alta, altum",high,159,Adjective,,high,1
+"altus, alta, altum","high, deep",159,Adjective,,"high, deep",1
 "amīcitia, amīcitiae, {f.}",friendship,690,Noun,,friendship,1
 "amīcus, amīca, amīcum","friendly; {(as a noun, *amīcus* or *amīca*)} friend",198,Adjective,,"friendly ‖ {(as a noun, *amīcus* or *amīca*)} friend",1
 "amō, amāre, amāvī, amātum",to love,219,Verb,,to love,1
@@ -320,7 +320,7 @@ extrā,outside,0,Preposition,,outside,1
 "fīlia, fīliae, {f.}",daughter,909,Noun,,daughter,1
 "fīlius, fīliī, {m.}",son,909,Noun,,son,1
 "fīniō, fīnīre, fīnīvī / fīniī, fīnītum",to limit; to end,0,Verb,,to limit ‖ to end,1
-"fīnis, fīnis, {m.}",end,236,Noun,,end,1
+"fīnis, fīnis, {m.}",end; boundary; {(in the plural)} territory,236,Noun,,end ‖ boundary ‖ {(in the plural)} territory,1
 "fīō, fierī, factus sum",to be made; to happen; to become,146,Verb,,to be made ‖ to happen ‖ to become,1
 "flamma, flammae, {f.}",flame,298,Noun,,flame,1
 "flectō, flectere, flexī, flexum",to bend,0,Verb,,to bend,1
@@ -569,7 +569,7 @@ neque,and...not; {(*neque ... neque*)} neither ... nor,72,Conjunction,,and...not
 "nihil, nīl",nothing,55,Noun,,nothing,1
 nimis,too much,841,Adverb,,too much,1
 "nimius, nimia, nimium","too much, excessive",502,Adjective,,"too much, excessive",1
-nisi,unless,100,Conjunction,,unless,1
+nisi,"unless, if not",100,Conjunction,,"unless, if not",1
 "nix, nivis, {f.}",snow,0,Noun,,snow,1
 "nōbilis, nōbile",noble,455,Adjective,,noble,1
 "nōbilitās, nōbilitātis, {f.}",the nobility,0,Noun,,the nobility,1
@@ -663,7 +663,7 @@ per,through,30,Preposition,,through,1
 "perturbō, perturbāre, perturbāvī, perturbātum","to throw into confusion, upset",0,Verb,,"to throw into confusion, upset",1
 "perveniō, pervenīre, pervēnī, perventum",to arrive,409,Verb,,to arrive,1
 "pēs, pedis, {m.}",foot,199,Noun,,foot,1
-"petō, petere, petīvī / petiī, petītum",to seek,83,Verb,,to seek,1
+"petō, petere, petīvī / petiī, petītum",to seek; to attack,83,Verb,,to seek ‖ to attack,1
 "placeō, placēre, placuī, placitum",to please,287,Verb,,to please,1
 "plēbēius, plēbēia, plēbēium",plebeian,0,Adjective,,plebeian,1
 "plēbs, plēbis, {f.}",the common people,649,Noun,,the common people,1
@@ -739,7 +739,7 @@ propter,because of,560,Preposition,,because of,1
 "Pūnicus, Pūnica, Pūnicum",Carthaginian,0,Adjective,,Carthaginian,1
 "putō, putāre, putāvī, putātum",to think,166,Verb,,to think,1
 "Pȳrēnaeus, Pȳrēnaea, Pȳrēnaeum","Pyrenean; montēs Pȳrēnaeī, the Pyrenees",0,Adjective,,"Pyrenean; montēs Pȳrēnaeī, the Pyrenees",1
-"quaerō, quaerere, quaesīvī, quaesītum",to seek,113,Verb,,to seek,1
+"quaerō, quaerere, quaesīvī, quaesītum",to seek; to ask,113,Verb,,to seek ‖ to ask,1
 "quālis, quāle",of what kind,263,Adjective,,of what kind,1
 quam,"how {(exclamatory)}; {(after a comparative)} than; {(after *tam*, in comparisons of equality)} as; as possible {(with a superlative, *quam minimum*)}",29,Conjunction,,"how {(exclamatory)} ‖ {(after a comparative)} than ‖ {(after *tam*, in comparisons of equality)} as ‖ as possible {(with a superlative, *quam minimum*)}",1
 quamquam,although,644,Conjunction,,although,1
@@ -941,7 +941,7 @@ tunc,then,56,Adverb,,then,1
 "vāllum, vāllī, {n.}",rampart,0,Noun,,rampart,1
 "varius, varia, varium",various,631,Adjective,,various,1
 "vāstō, vāstāre, vāstāvī, vāstātum","to lay waste, devastate",0,Verb,,"to lay waste, devastate",1
-ubi,where,92,Adverb,,where,1
+ubi,"where, when",92,Adverb,,"where, when",1
 ubīque,everywhere,0,Adverb,,everywhere,1
 vehementer,"strongly, violently",0,Adverb,,"strongly, violently",1
 "vehō, vehere, vēxī, vectum",to carry,632,Verb,,to carry,1

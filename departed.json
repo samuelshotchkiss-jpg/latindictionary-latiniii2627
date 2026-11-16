@@ -3,6 +3,61 @@
  "version": 1,
  "corpus": "latin-iii",
  "ceiling": 100,
- "on_list": 95,
- "trials": []
+ "on_list": 100,
+ "trials": [
+  {
+   "trial": 7,
+   "title": "VL XI.1–46; VL XI.70–84; VL XI.98–112; VL XI.122–134",
+   "words": [
+    {
+     "headword": "cīvis, cīvis, {m./f.}",
+     "latin": "cīvis, cīvis, m./f.",
+     "english": "citizen",
+     "back": null
+    },
+    {
+     "headword": "contrā",
+     "latin": "contrā",
+     "english": "opposite ‖ also: against",
+     "back": null
+    },
+    {
+     "headword": "cum (quum)",
+     "latin": "cum (quum)",
+     "english": "when ‖ also: although (often followed by tamen) ‖ cum prīmum \"when first\" → \"as soon as\"",
+     "back": null
+    },
+    {
+     "headword": "dūcō, dūcere, dūxī, ductum",
+     "latin": "dūcō, dūcere, dūxī, ductum",
+     "english": "to lead",
+     "back": null
+    },
+    {
+     "headword": "dux, ducis, {m./f.}",
+     "latin": "dux, ducis, m./f.",
+     "english": "leader",
+     "back": null
+    },
+    {
+     "headword": "hostis, hostis, {m./f.}",
+     "latin": "hostis, hostis, m./f.",
+     "english": "enemy",
+     "back": null
+    },
+    {
+     "headword": "itaque",
+     "latin": "itaque",
+     "english": "therefore",
+     "back": null
+    },
+    {
+     "headword": "mīles, mīlitis, {m.}",
+     "latin": "mīles, mīlitis, m.",
+     "english": "soldier",
+     "back": null
+    }
+   ]
+  }
+ ]
 }
